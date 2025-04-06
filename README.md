@@ -11,10 +11,10 @@
 
 ## 🔧 Technologies utilisées
 
-- HTML5 / CSS3  
-- JavaScript (Vanilla)  
-- PHP (structure légère, sans framework)  
-- Git / GitHub  
+- HTML5 / CSS3
+- JavaScript (Vanilla)
+- PHP (structure légère, sans framework)
+- Git / GitHub
 
 ## 🧠 Organisation du projet
 
@@ -58,14 +58,29 @@ gamepack/
 
 ## 📦 Statut du projet
 
-🟢 En cours de développement  
+🟢 En cours de développement
 Premier commit effectué le 6 avril 2025
 
 ## 🙋‍♂️ Auteur
 
-Développé par Romain Monier  
-📍 Lens, Hauts-de-France, France  
+Développé par Romain Monier
+📍 Lens, Hauts-de-France, France
 💼 [Portfolio (bientôt en ligne)](https://github.com/Romain62300)
+## 📄 Licence
+
+Ce projet est protégé par la licence **Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 International (CC BY-NC 4.0)**.
+
+Vous êtes libre de :
+- 🔄 **Partager** : copier et redistribuer le contenu du projet
+- 🛠️ **Adapter** : le modifier, le transformer, l’adapter à votre convenance
+
+À condition de :
+- 👤 **Me créditer** en tant qu’auteur (Romain Monier)
+- ❌ **Ne pas utiliser ce projet à des fins commerciales**
+
+🔗 Pour consulter les termes complets de la licence :
+[https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)
+
 
 ---
 
@@ -84,10 +99,10 @@ Développé par Romain Monier
 
 ## 🔧 Technologies
 
-- HTML5 / CSS3  
-- Vanilla JavaScript  
-- PHP (no framework)  
-- Git / GitHub  
+- HTML5 / CSS3
+- Vanilla JavaScript
+- PHP (no framework)
+- Git / GitHub
 
 ## 🧠 Project Structure
 
@@ -127,14 +142,29 @@ gamepack/
 
 ## 📦 Project Status
 
-🟢 In development  
+🟢 In development
 First commit on April 6, 2025
 
 ## 🙋‍♂️ Author
 
-Developed by Romain Monier  
-📍 Lens, France  
+Developed by Romain Monier
+📍 Lens, France
 💼 [GitHub Portfolio](https://github.com/Romain62300)
+
+## 📄 License (EN)
+
+This project is licensed under the **Creative Commons Attribution - NonCommercial 4.0 International (CC BY-NC 4.0)**.
+
+You are free to:
+- 🔄 **Share** — copy and redistribute the material in any medium or format
+- 🛠️ **Adapt** — remix, transform, and build upon the material
+
+Under the following terms:
+- 👤 **Attribution** — You must give appropriate credit (Romain Monier)
+- ❌ **NonCommercial** — You may not use the material for commercial purposes
+
+🔗 Full license details:
+[https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)
 
 
 ---
