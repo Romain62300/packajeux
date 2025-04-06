@@ -28,11 +28,21 @@ gamepack/
 │   ├── header.php
 │   └── footer.php
 ├── public/             → Fichiers accessibles publiquement
-│   └── index.php       → Page d’accueil avec liste des jeux
-├── README.md
-```
+│   ├── assets/         → CSS, JS, images
+│   │   ├── css/        → Feuilles de style
+│   │   ├── images/     → Images du projet
+│   │   └── js/         → Scripts JavaScript
+│   └── jeux/           → Jeux interactifs
+│       ├── memory.php
+│       ├── morpion.php
+│       └── pfc.php
+├── src/                → Logique métier du projet
+│   ├── Controller/     → Contrôleurs pour la gestion des jeux et des utilisateurs
+│   ├── Model/          → Modèles pour la gestion des données
+│   └── View/           → Vues pour l'affichage des pages
+├── tests/              → Tests pour les jeux et utilisateurs
+├── README.md           → Documentation du projet
 
-Des dossiers `games/` et `assets/` viendront s’ajouter au fur et à mesure de l’évolution du projet.
 
 ## 🚀 Prochaines étapes
 
@@ -76,7 +86,6 @@ Développé par Romain Monier
 
 ## 🧠 Project Structure
 
-```plaintext
 gamepack/
 ├── config/             → Configuration files
 │   └── config.php
@@ -84,11 +93,21 @@ gamepack/
 │   ├── header.php
 │   └── footer.php
 ├── public/             → Public-facing files
-│   └── index.php       → Homepage with list of available games
-├── README.md
-```
+│   ├── assets/         → CSS, JS, images
+│   │   ├── css/        → Stylesheets
+│   │   ├── images/     → Project images
+│   │   └── js/         → JavaScript files
+│   └── games/          → Interactive games
+│       ├── memory.php
+│       ├── morpion.php
+│       └── pfc.php
+├── src/                → Project business logic
+│   ├── Controller/     → Controllers for managing games and users
+│   ├── Model/          → Models for handling data
+│   └── View/           → Views for displaying pages
+├── tests/              → Tests for games and users
+├── README.md           → Project documentation
 
-Folders like `games/` and `assets/` will be added as the project grows.
 
 ## 🚀 Next Steps
 
@@ -107,3 +126,8 @@ First commit on April 6, 2025
 Developed by Romain Monier  
 📍 Lens, France  
 💼 [GitHub Portfolio](https://github.com/Romain62300)
+
+
+---
+
+
