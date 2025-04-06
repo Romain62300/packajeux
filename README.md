@@ -22,26 +22,31 @@ Le projet est structuré comme suit :
 
 ```plaintext
 gamepack/
-├── config/             → Fichiers de configuration
+├── .vscode/                 → Recommandations d’extensions pour VS Code (locales au projet)
+│   └── extensions.json
+├── config/                  → Fichiers de configuration
 │   └── config.php
-├── includes/           → Header, footer, éléments réutilisables
+├── includes/                → Header, footer, éléments réutilisables
 │   ├── header.php
 │   └── footer.php
-├── public/             → Fichiers accessibles publiquement
-│   ├── assets/         → CSS, JS, images
-│   │   ├── css/        → Feuilles de style
-│   │   ├── images/     → Images du projet
-│   │   └── js/         → Scripts JavaScript
-│   └── jeux/           → Jeux interactifs
+├── public/                  → Fichiers accessibles publiquement
+│   ├── assets/              → CSS, JS, images
+│   │   ├── css/             → Feuilles de style
+│   │   │   └── style.css
+│   │   ├── images/          → Images du projet
+│   │   └── js/              → Scripts JavaScript
+│   │       └── main.js
+│   └── jeux/                → Jeux interactifs
 │       ├── memory.php
 │       ├── morpion.php
 │       └── pfc.php
-├── src/                → Logique métier du projet
-│   ├── Controller/     → Contrôleurs pour la gestion des jeux et des utilisateurs
-│   ├── Model/          → Modèles pour la gestion des données
-│   └── View/           → Vues pour l'affichage des pages
-├── tests/              → Tests pour les jeux et utilisateurs
-├── README.md           → Documentation du projet
+├── src/                     → Logique métier du projet
+│   ├── Controller/          → Contrôleurs pour la gestion des jeux et des utilisateurs
+│   ├── Model/               → Modèles pour la gestion des données
+│   └── View/                → Vues pour l'affichage des pages
+├── tests/                   → Tests pour les jeux et utilisateurs
+├── README.md                → Documentation du projet
+
 
 
 ## 🚀 Prochaines étapes
@@ -87,26 +92,30 @@ Développé par Romain Monier
 ## 🧠 Project Structure
 
 gamepack/
-├── config/             → Configuration files
+├── .vscode/                 → Recommandations d’extensions pour VS Code (locales au projet)
+│   └── extensions.json
+├── config/                  → Fichiers de configuration
 │   └── config.php
-├── includes/           → Header, footer, reusable components
+├── includes/                → Header, footer, éléments réutilisables
 │   ├── header.php
 │   └── footer.php
-├── public/             → Public-facing files
-│   ├── assets/         → CSS, JS, images
-│   │   ├── css/        → Stylesheets
-│   │   ├── images/     → Project images
-│   │   └── js/         → JavaScript files
-│   └── games/          → Interactive games
+├── public/                  → Fichiers accessibles publiquement
+│   ├── assets/              → CSS, JS, images
+│   │   ├── css/             → Feuilles de style
+│   │   │   └── style.css
+│   │   ├── images/          → Images du projet
+│   │   └── js/              → Scripts JavaScript
+│   │       └── main.js
+│   └── jeux/                → Jeux interactifs
 │       ├── memory.php
 │       ├── morpion.php
 │       └── pfc.php
-├── src/                → Project business logic
-│   ├── Controller/     → Controllers for managing games and users
-│   ├── Model/          → Models for handling data
-│   └── View/           → Views for displaying pages
-├── tests/              → Tests for games and users
-├── README.md           → Project documentation
+├── src/                     → Logique métier du projet
+│   ├── Controller/          → Contrôleurs pour la gestion des jeux et des utilisateurs
+│   ├── Model/               → Modèles pour la gestion des données
+│   └── View/                → Vues pour l'affichage des pages
+├── tests/                   → Tests pour les jeux et utilisateurs
+├── README.md                → Documentation du projet
 
 
 ## 🚀 Next Steps

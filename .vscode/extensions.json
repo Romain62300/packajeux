@@ -1,0 +1,14 @@
+﻿{
+  "recommendations": [
+    "bmewburn.vscode-intelephense-client",
+    "esbenp.prettier-vscode",
+    "ritwickdey.liveserver",
+    "ecmel.vscode-html-css",
+    "christian-kohler.path-intellisense",
+    "xdebug.php-debug",
+    "eamodio.gitlens",
+    "gruntfuggly.todo-tree",
+    "oderwat.indent-rainbow",
+    "bradlc.vscode-tailwindcss"
+  ]
+}
