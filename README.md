@@ -1,6 +1,19 @@
 # Gamepack 🎮
 
+📄 **Sommaire**
+- 🇫🇷 [Version française](#version-française)
+- 🇬🇧 [English version](#english-version)
+
+## 🇫🇷 Version française
+
+![GitHub repo size](https://img.shields.io/github/repo-size/Romain62300/gamepack)
+![GitHub last commit](https://img.shields.io/github/last-commit/Romain62300/gamepack)
+
+---
+
 **Gamepack** est un projet personnel de développement web regroupant plusieurs mini-jeux accessibles depuis une interface simple, ludique et responsive. Le but est de proposer un ensemble de jeux gratuits directement jouables en ligne, avec une interface claire, intuitive et sans publicités.
+
+![Aperçu de Gamepack](./public/assets/images/apercu-gamepack.png)
 
 ## 🎯 Objectifs du projet
 
@@ -18,36 +31,27 @@
 
 ## 🧠 Organisation du projet
 
-Le projet est structuré comme suit :
-
 ```plaintext
 gamepack/
-├── .vscode/                 → Recommandations d’extensions pour VS Code (locales au projet)
-│   └── extensions.json
-├── config/                  → Fichiers de configuration
-│   └── config.php
-├── includes/                → Header, footer, éléments réutilisables
-│   ├── header.php
-│   └── footer.php
-├── public/                  → Fichiers accessibles publiquement
-│   ├── assets/              → CSS, JS, images
-│   │   ├── css/             → Feuilles de style
-│   │   │   └── style.css
-│   │   ├── images/          → Images du projet
-│   │   └── js/              → Scripts JavaScript
-│   │       └── main.js
-│   └── jeux/                → Jeux interactifs
+├── .vscode/
+├── config/
+├── includes/
+├── public/
+│   ├── assets/
+│   │   ├── css/
+│   │   ├── images/
+│   │   └── js/
+│   └── jeux/
 │       ├── memory.php
 │       ├── morpion.php
 │       └── pfc.php
-├── src/                     → Logique métier du projet
-│   ├── Controller/          → Contrôleurs pour la gestion des jeux et des utilisateurs
-│   ├── Model/               → Modèles pour la gestion des données
-│   └── View/                → Vues pour l'affichage des pages
-├── tests/                   → Tests pour les jeux et utilisateurs
-├── README.md                → Documentation du projet
-
-
+├── src/
+│   ├── Controller/
+│   ├── Model/
+│   └── View/
+├── tests/
+├── README.md
+```
 
 ## 🚀 Prochaines étapes
 
@@ -66,6 +70,7 @@ Premier commit effectué le 6 avril 2025
 Développé par Romain Monier
 📍 Lens, Hauts-de-France, France
 💼 [Portfolio (bientôt en ligne)](https://github.com/Romain62300)
+
 ## 📄 Licence
 
 Ce projet est protégé par la licence **Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 International (CC BY-NC 4.0)**.
@@ -81,14 +86,16 @@ Vous êtes libre de :
 🔗 Pour consulter les termes complets de la licence :
 [https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)
 
-
 ---
 
 ## 🇬🇧 English version
 
-# Gamepack 🎮
+![GitHub repo size](https://img.shields.io/github/repo-size/Romain62300/gamepack)
+![GitHub last commit](https://img.shields.io/github/last-commit/Romain62300/gamepack)
 
 **Gamepack** is a personal web development project bringing together several mini-games in a clean and user-friendly interface. The goal is to offer free online games, accessible to everyone, without ads or tracking.
+
+🔗 [Live demo (Ngrok)](https://0c59-2a01-cb0c-688-ca00-591b-7041-900c-72a8.ngrok-free.app)
 
 ## 🎯 Project Goals
 
@@ -106,32 +113,27 @@ Vous êtes libre de :
 
 ## 🧠 Project Structure
 
+```plaintext
 gamepack/
-├── .vscode/                 → Recommandations d’extensions pour VS Code (locales au projet)
-│   └── extensions.json
-├── config/                  → Fichiers de configuration
-│   └── config.php
-├── includes/                → Header, footer, éléments réutilisables
-│   ├── header.php
-│   └── footer.php
-├── public/                  → Fichiers accessibles publiquement
-│   ├── assets/              → CSS, JS, images
-│   │   ├── css/             → Feuilles de style
-│   │   │   └── style.css
-│   │   ├── images/          → Images du projet
-│   │   └── js/              → Scripts JavaScript
-│   │       └── main.js
-│   └── jeux/                → Jeux interactifs
+├── .vscode/
+├── config/
+├── includes/
+├── public/
+│   ├── assets/
+│   │   ├── css/
+│   │   ├── images/
+│   │   └── js/
+│   └── jeux/
 │       ├── memory.php
 │       ├── morpion.php
 │       └── pfc.php
-├── src/                     → Logique métier du projet
-│   ├── Controller/          → Contrôleurs pour la gestion des jeux et des utilisateurs
-│   ├── Model/               → Modèles pour la gestion des données
-│   └── View/                → Vues pour l'affichage des pages
-├── tests/                   → Tests pour les jeux et utilisateurs
-├── README.md                → Documentation du projet
-
+├── src/
+│   ├── Controller/
+│   ├── Model/
+│   └── View/
+├── tests/
+├── README.md
+```
 
 ## 🚀 Next Steps
 
@@ -165,8 +167,4 @@ Under the following terms:
 
 🔗 Full license details:
 [https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)
-
-
----
-
 
