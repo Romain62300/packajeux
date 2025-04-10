@@ -74,6 +74,7 @@ Développé par Romain Monier
 ## 📄 Licence
 
 Ce projet est protégé par la licence **Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 International (CC BY-NC 4.0)**.
+[Version française de la licence](./LICENSE-fr.txt)
 
 Vous êtes libre de :
 - 🔄 **Partager** : copier et redistribuer le contenu du projet
@@ -156,6 +157,7 @@ Developed by Romain Monier
 ## 📄 License (EN)
 
 This project is licensed under the **Creative Commons Attribution - NonCommercial 4.0 International (CC BY-NC 4.0)**.
+ [Version originale (EN)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 You are free to:
 - 🔄 **Share** — copy and redistribute the material in any medium or format
