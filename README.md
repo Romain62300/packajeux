@@ -1,4 +1,5 @@
 # Gamepack 🎮
+🔗 [Voir le dépôt GitHub Gamepack](https://github.com/Romain62300/gamepack)
 
 📄 **Sommaire**
 - 🇫🇷 [Version française](#version-française)
@@ -87,6 +88,18 @@ Vous êtes libre de :
 🔗 Pour consulter les termes complets de la licence :
 [https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)
 
+
+## 📬 Contact & retours
+
+Vous avez des idées, suggestions ou avez trouvé un bug ?
+N'hésitez pas à créer une [issue sur GitHub](https://github.com/Romain62300/gamepack/issues) ou à me contacter directement :
+
+- 💌 Email : romainmonier.dev@gmail.com *(exemple à remplacer si besoin)*
+- 💼 LinkedIn : [linkedin.com/in/romainmonier](https://www.linkedin.com/in/romainmonier)
+
+Je suis toujours ouvert aux échanges et aux collaborations 👋
+
+
 ---
 
 ## 🇬🇧 English version
@@ -169,4 +182,13 @@ Under the following terms:
 
 🔗 Full license details:
 [https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)
+## 📬 Contact & Feedback
+
+Have ideas, suggestions, or found a bug?
+Feel free to open an [issue on GitHub](https://github.com/Romain62300/gamepack/issues) or contact me directly:
+
+- 💌 Email: romainmonier.dev@gmail.com
+- 💼 LinkedIn: [linkedin.com/in/romainmonier](https://www.linkedin.com/in/romainmonier)
+
+I'm always open to discussion and collaboration 👋
 
