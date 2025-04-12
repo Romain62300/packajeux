@@ -26,6 +26,7 @@
         <li><a href="/gamepack/public/jeux/morpion.php">Morpion</a></li>
         <li><a href="/gamepack/public/jeux/memory.php">Mémoire</a></li>
         <li><a href="/gamepack/public/jeux/pfc.php">PFC</a></li>
+        <li><a href="/gamepack/public/jeux/devine.php">Devine le nombre</a></li>
         <li><a href="/gamepack/public/create/des.php" class="dice-link">🎲 Créer un dé</a></li>
       </ul>
 
