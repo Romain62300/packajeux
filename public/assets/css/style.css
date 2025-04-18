@@ -1,4 +1,6 @@
-/* ===== RESET ===== */
+/* ======================================================
+   >>> RESET GENERAL
+====================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -15,52 +17,49 @@ body {
   color: #222;
   line-height: 1.6;
   transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
 }
 
-/* ===== DARK MODE ===== */
+/* ======================================================
+   >>> MODE SOMBRE
+====================================================== */
 body.dark-mode {
   background-color: #121212;
   color: #f0f0f0;
 }
-
 body.dark-mode a {
   color: #90caf9;
 }
-
 body.dark-mode main {
   background-color: #1e1e1e;
   border-color: #333;
 }
-
 body.dark-mode h2,
 body.dark-mode h3 {
   color: #ffd54f;
 }
-
 body.dark-mode .footer {
   background-color: #1c1c2b;
   color: #ccc;
 }
-
 body.dark-mode .footer a {
   color: #90caf9;
 }
-
 body.dark-mode .btn,
 body.dark-mode .dice-link {
   background-color: #ff5252;
 }
-
 body.dark-mode .game-card {
   background-color: #2a2a2a;
   color: #f9f9f9;
 }
-
 body.dark-mode .game-card p {
   color: #ccc;
 }
 
-/* ===== HEADER ===== */
+/* ======================================================
+   >>> HEADER & NAVIGATION
+====================================================== */
 header {
   background-color: #2E3A59;
   padding: 20px 40px;
@@ -73,11 +72,25 @@ header {
   z-index: 1000;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
 .brand {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
+  margin-top: 4px; /* ↗️ ajuste légèrement le centrage vertical */
 }
+
+.brand img {
+  height: 80px; /* au lieu de 100px si tu veux alléger */
+}
+
+
 
 .brand h1 {
   font-family: 'Poppins', sans-serif;
@@ -86,16 +99,8 @@ header {
   letter-spacing: 1px;
   transition: color 0.3s ease-in-out;
 }
-
 .brand h1:hover {
   color: #ffeb3b;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 20px;
 }
 
 nav ul {
@@ -104,33 +109,123 @@ nav ul {
   gap: 25px;
 }
 
+nav ul li {
+  padding: 0 6px;
+}
+
 nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.2s ease-in-out;
 }
-
 nav ul li a:hover {
   color: #ffd54f;
   text-shadow: 0 0 4px rgba(255, 213, 79, 0.4);
 }
 
-.dice-link {
-  background-color: #d32f2f;
-  color: #fff !important;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.2s ease-in-out;
+/* BOUTON MODE SOMBRE */
+#darkModeToggle {
+  background-color: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.3s ease;
+  color: #fff;
+}
+#darkModeToggle:hover {
+  transform: scale(1.2);
+  filter: brightness(120%);
+}
+body.dark-mode #darkModeToggle {
+  color: #ffd54f;
+}
+
+/* SWITCH SLIDER DARK MODE */
+.switch {
+  position: relative;
   display: inline-block;
+  width: 48px;
+  height: 26px;
+  margin-left: 10px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 26px;
+}
+.slider:before {
+  position: absolute;
+  content: "🌙";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  font-size: 13px;
+  text-align: center;
+  line-height: 20px;
+}
+input:checked + .slider {
+  background-color: #ffd54f;
+}
+input:checked + .slider:before {
+  transform: translateX(20px);
+  content: "☀️";
 }
 
-.dice-link:hover {
-  background-color: #b71c1c;
+/* ======================================================
+   >>> MENU DÉROULANT (DROPDOWN)
+====================================================== */
+nav ul li.dropdown {
+  position: relative;
+}
+nav ul li .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #2E3A4F;
+  border-radius: 0 0 6px 6px;
+  z-index: 999;
+  min-width: 180px;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+nav ul li .dropdown-content li {
+  text-align: left;
+  padding: 8px 20px;
+  margin-bottom: 6px;
+}
+nav ul li .dropdown-content li a {
+  color: #fff;
+  display: block;
+}
+nav ul li .dropdown-content li a:hover {
+  background-color: #ffd54f;
+  color: #2E3A4F;
+  border-radius: 4px;
+}
+nav ul li.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-/* ===== MAIN ===== */
+/* ======================================================
+   >>> SECTIONS PRINCIPALES & JEUX
+====================================================== */
 main {
   padding: 60px 40px;
   text-align: center;
@@ -141,90 +236,13 @@ main {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border: 1px solid #ddd;
 }
-
 main h2 {
   font-size: 2.2rem;
   color: #2E3A59;
   margin-bottom: 10px;
 }
 
-/* ===== FOOTER ===== */
-footer {
-  background-color: #2E3A59;
-  color: #fff;
-  padding: 40px 20px 30px;
-  font-size: 0.9rem;
-}
-
-.footer-container {
-  max-width: 1100px;
-  margin:  0 auto;
-  padding: 0 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer-columns {
-  display: flex;
-  justify-content: space-between;
-  gap: 60px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.footer-col {
-  flex: 1 1 45%;
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding-bottom: 30px;
-  margin-bottom: 40px;
-}
-
-.footer-col h3 {
-  margin-bottom: 10px;
-  margin-top: 5px;
-  color: #ffd54f;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 6px;
-  padding-left: 5px;
-}
-
-.footer-col p,
-.footer-col a {
-  text-align: left;
-  margin: 0;
-  line-height: 1.4;
-  word-break: break-word;
-}
-
-.footer-col img {
-  vertical-align: middle;
-}
-
-.footer-bottom {
-  border-top: 1px solid #444;
-  padding-top: 15px;
-  text-align: center;
-  font-size: 0.8rem;
-  line-height: 1.5;
-}
-
-.footer a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 12px;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.footer a:hover {
-  color: #ffd54f;
-  text-shadow: 0 0 4px rgba(255, 213, 79, 0.3);
-}
-
-/* ===== GAME CARD ===== */
+/* GAME CARDS */
 .games-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -232,7 +250,6 @@ footer {
   padding: 40px 0;
   justify-content: center;
 }
-
 .game-card {
   background-color: #fff;
   border-radius: 12px;
@@ -241,29 +258,24 @@ footer {
   text-align: center;
   transition: transform 0.2s ease-in-out;
 }
-
 .game-card:hover {
   transform: translateY(-5px);
 }
-
 .game-card img {
   height: 100px;
   width: auto;
   object-fit: contain;
   margin-bottom: 15px;
 }
-
 .game-card h3 {
   margin-bottom: 10px;
   color: #2E3A59;
 }
-
 .game-card p {
   font-size: 0.95rem;
   margin-bottom: 15px;
   color: #555;
 }
-
 .game-card .btn {
   background-color: #d32f2f;
   color: #fff;
@@ -274,134 +286,141 @@ footer {
   display: inline-block;
   transition: background-color 0.2s;
 }
-
 .game-card .btn:hover {
   background-color: #b71c1c;
 }
-
 .game-card.disabled {
   opacity: 0.6;
 }
-
 .game-card.disabled .btn {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
-/* ===== FORMULAIRE SUGGESTION ===== */
-.future-games,
-.game-suggestions {
-  text-align: center;
-  margin: 20px 0;
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 8px;
-}
-
-.game-suggestions form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.game-suggestions textarea,
-.game-suggestions select,
-.game-suggestions input {
-  width: 80%;
-  padding: 10px;
-  margin-bottom: 15px;
+/* GLOW EFFET MORPION */
+.glow {
+  box-shadow: 0 0 12px 4px #ffd700;
   border-radius: 4px;
-  border: 1px solid #ddd;
 }
 
-.game-suggestions button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.game-suggestions button:hover {
-  background-color: #0056b3;
-}
-
-/* ===== MORPION ===== */
+/* MORPION */
 .morpion-board {
   display: grid;
   grid-template-columns: repeat(3, 100px);
-  gap: 8px;
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
   justify-content: center;
   margin: 30px auto;
 }
-
 .cell {
-  width: 100px;
-  height: 100px;
+  background-color: #f0f0f0;
+  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2.5rem;
   font-weight: bold;
-  background-color: #fff;
-  border: 2px solid #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+  transition: background-color 0.2s ease;
+  color: #000;
 }
-
 .cell:hover {
-  background-color: #f5f5f5;
-  transform: scale(1.05);
+  background-color: #e0e0e0;
 }
-
-.cell.x {
-  color: #e53935;
-}
-
-.cell.o {
-  color: #1e88e5;
-}
-
-#turnInfo {
-  margin: 20px 0;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
 #restart-btn {
+  margin-top: 20px;
   padding: 10px 20px;
-  background-color: #ff9800;
+  font-size: 1rem;
+  background-color: #d32f2f;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-#restart-btn:hover {
-  background-color: #f57c00;
-}
-
-/* ===== DARK MODE TOGGLE ===== */
-#darkModeToggle {
-  background-color: #2E3A4F;
-  color: white;
-  border: 2px solid #fff;
-  padding: 8px 14px;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s;
+}
+#restart-btn:hover {
+  background-color: #b71c1c;
+}
+.game-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-#darkModeToggle:hover {
-  background-color: #3b4a65;
-  transform: scale(1.05);
+/* ======================================================
+   >>> FOOTER
+====================================================== */
+footer {
+  background-color: #2E3A59;
+  color: #fff;
+  padding: 40px 20px 30px;
+  font-size: 0.9rem;
+  width: 100vw;
+  overflow-x: hidden;
+}
+.footer-container {
+  max-width: 1100px;
+  margin:  0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.footer-col {
+  flex: 1 1 45%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+}
+.footer-col h3 {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  color: #ffd54f;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 6px;
+  padding-left: 5px;
+}
+.footer-col p,
+.footer-col a {
+  text-align: left;
+  margin: 0;
+  line-height: 1.4;
+  word-break: break-word;
+}
+.footer-col img {
+  vertical-align: middle;
+}
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 12px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.footer a:hover {
+  color: #ffd54f;
+  text-shadow: 0 0 4px rgba(255, 213, 79, 0.3);
 }
 
-/* ===== BURGER MENU ===== */
+/* ======================================================
+   >>> RESPONSIVE
+====================================================== */
 .burger {
   display: none;
   font-size: 2rem;
@@ -410,14 +429,11 @@ footer {
   margin-left: auto;
   padding: 10px;
 }
-
-/* ===== RESPONSIVE ===== */
 @media screen and (max-width: 768px) {
   nav {
     flex-wrap: wrap;
     justify-content: space-between;
   }
-
   #nav-links {
     display: none;
     width: 100%;
@@ -426,33 +442,25 @@ footer {
     background-color: #2E3A4F;
     padding: 1rem;
   }
-
   #nav-links.active {
     display: flex;
   }
-
   .burger {
     display: block;
   }
-
   #darkModeToggle {
     margin: 10px auto;
     display: block;
   }
-
   .footer-columns {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /*gap: 30px;*/
   }
-
-
   .footer-col {
     align-items: center;
     text-align: center;
   }
-
   .footer-col p,
   .footer-col a {
     text-align: center;
@@ -460,30 +468,13 @@ footer {
   .footer-bottom {
     text-align: center;
   }
-
-
   .footer-bottom a {
     display: block;
     margin: 4px 0;
   }
 }
-
 @media screen and (max-width: 500px) {
   main {
     padding: 40px 20px;
   }
-
-  .game-suggestions textarea,
-  .game-suggestions select,
-  .game-suggestions input {
-    width: 100%;
-  }
-}
-footer {
-  width: 100vw;            /* Prend toute la largeur de l’écran */
-  overflow-x: hidden;      /* Évite un scroll horizontal */
-}
-
-body {
-  overflow-x: hidden;      /* Évite tout débordement global */
 }

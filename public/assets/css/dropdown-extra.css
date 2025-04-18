@@ -1,0 +1,38 @@
+
+/* dropdown-extra.css */
+nav ul li.dropdown {
+  position: relative;
+}
+
+nav ul li .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #2E3A4F;
+  border-radius: 0 0 6px 6px;
+  z-index: 999;
+  min-width: 180px;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+nav ul li .dropdown-content li {
+  text-align: left;
+  padding: 8px 20px;
+}
+
+nav ul li .dropdown-content li a {
+  color: #fff;
+  display: block;
+}
+
+nav ul li .dropdown-content li a:hover {
+  background-color: #ffd54f;
+  color: #2E3A4F;
+  border-radius: 4px;
+}
+
+nav ul li.dropdown:hover .dropdown-content {
+  display: block;
+}

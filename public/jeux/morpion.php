@@ -1,4 +1,9 @@
-<?php include_once("../../includes/header.php"); ?>
+<?php
+$mode = $_GET['mode'] ?? '2players';
+$script = $mode === 'ia' ? 'morpion-ia.js' : 'morpion.js';
+
+include_once("../../includes/header.php");
+?>
 
 <main>
   <h2>Morpion</h2>
@@ -12,9 +17,20 @@
     <?php endfor; ?>
   </div>
 
-  <button onclick="resetGame()" id="restart-btn">🔁 Recommencer</button>
+  <button onclick="resetGame()" id="restart-btn" class="btn">🔁 Recommencer</button>
+
+  <p style="margin-top: 10px;">
+    <strong>Mode actuel :</strong>
+    <?= $mode === 'ia' ? 'Contre l’ordinateur' : '2 Joueurs' ?>
+  </p>
+  <div class="game-options">
+    <a href="?mode=ia" class="btn">Mode IA</a>
+    <a href="?mode=2players" class="btn">2 Joueurs</a>
+  </div>
+
 </main>
 
-<script src="/gamepack/public/assets/js/morpion.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="/gamepack/public/assets/js/<?= $script ?>"></script>
 
 <?php include_once("../../includes/footer.php"); ?>
