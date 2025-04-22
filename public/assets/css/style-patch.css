@@ -1,0 +1,440 @@
+/* ===================================
+   🎨 PATCH CSS – Ajustement du Header
+   =================================== */
+
+/* ✅ Réduction de la taille du logo */
+.brand img {
+  height: 80px;
+}
+
+/* ✅ Espacement plus équilibré dans le header */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.dice-link {
+  margin-left: 20px;
+}
+
+/* ✅ Switch mode sombre aligné proprement */
+.switch {
+  margin-left: 20px;
+}
+
+/* Responsive : meilleure gestion du menu burger */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  #nav-links {
+    width: 100%;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .burger {
+    margin-left: auto;
+    padding: 10px;
+  }
+
+  #darkModeToggle {
+    margin: 10px auto;
+  }
+}
+
+/* =========================== */
+/* 🎨 STYLE_PATCH.CSS - CORRECTIF FOOTER */
+/* =========================== */
+
+/* ✅ Footer responsive aligné gauche/droite */
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  flex: 1 1 45%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+.footer-col h3 {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  color: #ffd54f;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 6px;
+  padding-left: 5px;
+}
+
+.footer-col p,
+.footer-col a {
+  text-align: left;
+  margin: 0;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 12px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffd54f;
+  text-shadow: 0 0 4px rgba(255, 213, 79, 0.3);
+}
+
+/* 🎮 Boutons de sélection de mode */
+.game-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px auto;
+}
+
+.game-options .btn {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.game-options .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* 🎮 Couleur différente pour chaque mode */
+.game-options .btn:nth-child(1) {
+  background-color: #2196f3;
+  color: white;
+}
+
+.game-options .btn:nth-child(1):hover {
+  background-color: #1976d2;
+}
+
+.game-options .btn:nth-child(2) {
+  background-color: #4caf50;
+  color: white;
+}
+
+.game-options .btn:nth-child(2):hover {
+  background-color: #388e3c;
+}
+.logo-mentions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.logo-mentions img {
+  max-height: 150px;
+  width: auto;
+  object-fit: contain;
+}
+.mentions-legales {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+.logo-mentions img {
+  max-height: 120px; /* au lieu de 150px */
+}
+/* ✅ Style pour les listes dans les pages légales */
+.legal-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.legal-page h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.legal-page ul {
+  list-style-type: disc;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+.legal-page li {
+  margin-bottom: 10px;
+}
+/* 🎯 Devine le nombre */
+main h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+main p {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+main form input[type="number"] {
+  font-size: 1rem;
+}
+
+main .btn {
+  background-color: #2196f3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+main .btn:hover {
+  background-color: #1976d2;
+}
+.user-info {
+  color: #fff;
+  margin-left: auto;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+.jetons-menu {
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(255, 119, 180, 0.5);
+  display: inline-block;
+}
+
+.dice-link {
+  background-color: #ff69b4;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px rgba(255, 105, 180, 0.5);
+}
+
+.dice-link:hover {
+  background-color: #ff85c1;
+  transform: translateY(-2px);
+}
+
+/* Version dark mode améliorée */
+body.dark-mode .dice-link {
+  background-color: #ff69b4;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+}
+
+body.dark-mode .dice-link:hover {
+  background-color: #ff85c1;
+}
+.login-box {
+  max-width: 400px;
+  background-color: #1e1e1e;
+  padding: 30px;
+  margin: 50px auto;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.3);
+  text-align: center;
+  color: #ffd54f;
+}
+
+.login-box h2 {
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ffd54f;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.input-group input:focus {
+  outline: none;
+  border: 2px solid #ff69b4;
+  background-color: #2f2f2f;
+}
+
+.btn-login {
+  width: 100%;
+  background-color: #ff69b4;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #ff85c1;
+}
+
+.login-error {
+  color: #ff4d4d;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.auth-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background: var(--light-card, #fff);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+
+body.dark-mode .auth-container {
+  background: #111;
+  box-shadow: 0 0 12px rgba(255, 119, 180, 0.3);
+}
+
+.auth-title {
+  text-align: center;
+  color: var(--main-color, #ffc107);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fffbe6;
+}
+
+body.dark-mode .auth-form input {
+  background: #222;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.auth-options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.auth-options a {
+  color: #ff69b4;
+  text-decoration: none;
+}
+
+.auth-options a:hover {
+  text-decoration: underline;
+}
+
+.auth-error {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.auth-footer a {
+  color: #ff69b4;
+  font-weight: bold;
+  text-decoration: none;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* Augmente l’espacement vertical */
+}
+
+@media screen and (min-width: 600px) {
+  .auth-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .auth-form input[type="email"],
+  .auth-form input[type="password"] {
+    width: 48%;
+  }
+
+  .auth-options {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.btn.disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
+  text-decoration: none;
+}

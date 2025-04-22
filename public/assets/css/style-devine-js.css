@@ -1,0 +1,27 @@
+.container {
+  max-width: 500px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+#game-area input[type="number"] {
+  padding: 10px;
+  width: 80%;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+#game-area button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #2e3a4f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#game-area button:hover {
+  background-color: #43506a;
+}

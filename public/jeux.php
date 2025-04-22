@@ -1,4 +1,13 @@
-<?php include_once("../includes/header.php"); ?>
+<?php
+require_once __DIR__ . '/../config/config.php';
+include_once("../includes/header.php");
+?>
+
+<?php if (isset($_GET['success'])): ?>
+<div class="success-message" style="text-align:center; margin-top:20px; color:green; font-weight:bold;">
+  ✅ Merci pour votre suggestion !
+</div>
+<?php endif; ?>
 
 <main>
   <h2>Nos mini-jeux 🎮</h2>

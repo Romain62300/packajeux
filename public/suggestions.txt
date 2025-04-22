@@ -4,3 +4,12 @@ Type : stratégie
 Jeu suggéré :  tetris
 Type : stratégie
 
+Jeu suggéré : sudoku
+Type : hasard
+
+Jeu suggéré : sudoku
+Type : hasard
+
+Jeu suggéré : sudoku
+Type : classique
+

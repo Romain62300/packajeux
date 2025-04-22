@@ -42,3 +42,22 @@
 
   </div>
 </footer>
+
+<?php
+// 🔁 Déduction du nom de la page
+$page = basename($_SERVER['PHP_SELF'], ".php");
+
+// 🔗 Inclusion JS auto
+$jsPath = "/gamepack/public/assets/js/$page.js";
+$jsFile = $_SERVER['DOCUMENT_ROOT'] . $jsPath;
+if (file_exists($jsFile)) {
+    echo "<script src='$jsPath' defer></script>";
+}
+
+// 🎨 Inclusion CSS auto
+$cssPath = "/gamepack/public/assets/css/style-$page.css";
+$cssFile = $_SERVER['DOCUMENT_ROOT'] . $cssPath;
+if (file_exists($cssFile)) {
+    echo "<link rel='stylesheet' href='$cssPath'>";
+}
+?>

@@ -1,0 +1,72 @@
+/* style-belote.css */
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+form#modeForm {
+  margin-bottom: 2rem;
+}
+
+#mode {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #2e3a4f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #43506a;
+}
+
+.cartes-dos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.cartes-dos img {
+  width: 80px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.cartes-dos img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cartes-dos img {
+    width: 60px;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}

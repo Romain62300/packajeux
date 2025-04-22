@@ -56,6 +56,41 @@ body.dark-mode .game-card {
 body.dark-mode .game-card p {
   color: #ccc;
 }
+.dark-mode .game-card img {
+  background-color: white;
+  padding: 5px;
+  border-radius: 8px;
+}
+body.dark-mode .charte-btn {
+  background-color: #ff69b4;
+  color: #fff;
+}
+body.dark-mode .charte-btn:hover {
+  background-color: #ff4d94;
+}
+body.dark-mode .cta-jeux {
+  background-color: #2196f3; /* on garde le bleu */
+  color: #fff; /* texte blanc pour meilleur contraste */
+}
+body.dark-mode .cta-jeux:hover {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+form button {
+  background-color: #2E3A4F;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+form button:hover {
+  background-color: #1c2736;
+}
+
 
 /* ======================================================
    >>> HEADER & NAVIGATION
@@ -186,6 +221,29 @@ input:checked + .slider:before {
   transform: translateX(20px);
   content: "☀️";
 }
+
+.user-info {
+  background-color: rgba(255,255,255,0.1);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin-left: auto;
+  font-weight: 600;
+}
+.jetons-menu {
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 16px;
+  box-shadow: 0 0 8px rgba(255, 119, 180, 0.7);
+  margin-left: 15px;
+}
+.jetons-menu:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
 
 /* ======================================================
    >>> MENU DÉROULANT (DROPDOWN)
@@ -346,6 +404,22 @@ main h2 {
   gap: 10px;
   margin-top: 20px;
 }
+.jetons-menu {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 8px rgba(255, 119, 180, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 119, 180, 1);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(255, 119, 180, 0.7);
+  }
+}
+
 
 /* ======================================================
    >>> FOOTER
@@ -416,7 +490,72 @@ footer {
 .footer a:hover {
   color: #ffd54f;
   text-shadow: 0 0 4px rgba(255, 213, 79, 0.3);
+
 }
+/* BOUTON ACCUEIL – Voir tous les jeux */
+.cta-jeux {
+  display: inline-block;
+  margin: 30px auto 0;
+  padding: 12px 24px;
+  background-color: #2196f3;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.cta-jeux:hover {
+  background-color: #1976d2;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+/* Centrage du bouton dans le main */
+main {
+  text-align: center;
+}
+
+.charte-btn {
+  background-color: #f06292; /* rose bonbon */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.charte-btn:hover {
+  background-color: #ec407a;
+}
+.charte-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.suggestion-list {
+  margin: 30px auto;
+  max-width: 600px;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.suggestion-list li {
+  margin-bottom: 16px;
+  padding-left: 12px;
+  border-left: 4px solid #ffd54f;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid #ffd54f;
+  outline-offset: 2px;
+}
+
 
 /* ======================================================
    >>> RESPONSIVE
@@ -476,5 +615,12 @@ footer {
 @media screen and (max-width: 500px) {
   main {
     padding: 40px 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .jetons-menu {
+    margin: 10px auto;
+    display: block;
+    text-align: center;
   }
 }
