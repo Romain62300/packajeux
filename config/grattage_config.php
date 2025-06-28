@@ -12,7 +12,9 @@ return [
     'ecogratt' => [
         'nom' => 'Écologratt\' 🌿',
         'gains' => [1, 1, 2, 2, 3, 5],
-        'limite_par_jour' => 1
+        'limite_par_jour' => 1,
+        'couleur' => '#FDE68A',
+    'son_gagnant' => 'cochon_win.mp3'
     ],
 
     'grattvip' => [
