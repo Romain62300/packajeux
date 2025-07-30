@@ -11,7 +11,7 @@ if (session_status() === PHP_SESSION_NONE) {
   <title>Gamepack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Styles -->
-  <link rel="stylesheet" href="/gamepack/public/assets/css/style.css">
+  <link rel="stylesheet" href="/gamepack/public/assets/css/style.css?v=1.0.3">
   <link rel="stylesheet" href="/gamepack/public/assets/css/dropdown-extra.css">
   <link rel="stylesheet" href="/gamepack/public/assets/css/style_patch.css">
   <link rel="stylesheet" href="/gamepack/public/assets/css/style-belote.css">
