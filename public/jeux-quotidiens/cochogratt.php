@@ -20,6 +20,6 @@ include_once("../../includes/header.php");
 
   <p><span style="color: blue;"> 📓 </span> Un seul grattage par jour autorisé.</p>
 </main>
-<link rel="stylesheet" href="/gamepack/public/assets/css/grattage.css">
-<script src="/gamepack/public/assets/js/grattage.js"></script>
+<link rel="stylesheet" href="/Packajeux/public/assets/css/grattage.css">
+<script src="/Packajeux/public/assets/js/grattage.js"></script>
 <?php include_once("../../includes/footer.php"); ?>

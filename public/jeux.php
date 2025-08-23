@@ -11,7 +11,7 @@ include_once("../includes/header.php");
 
 <main>
   <h2>Nos mini-jeux 🎮</h2>
-  <p>Découvrez les jeux disponibles sur Gamepack. De nouveaux jeux seront ajoutés régulièrement !</p>
+  <p>Découvrez les jeux disponibles sur Packajeux. De nouveaux jeux seront ajoutés régulièrement !</p>
 
   <section class="games-grid">
 

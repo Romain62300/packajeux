@@ -1,11 +1,13 @@
 <?php
-// Configuration pour Gamepack (version locale)
+// Configuration pour Packajeux (version locale)
 
 // 🌐 En local (WAMP/XAMPP)
 $host = 'localhost';
-$dbname = 'gamepack'; // ⚠️ À modifier si tu choisis un autre nom de base
+$dbname = 'Packajeux'; // ⚠️ À modifier si tu choisis un autre nom de base
 $username = 'root';
 $password = ''; // vide en local
+// Base URL de ton app (en local)
+$BASE_URL = '/packajeux/public';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);

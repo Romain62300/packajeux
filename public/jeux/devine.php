@@ -37,7 +37,7 @@ unset($_SESSION['message']);
 ?>
 
 <!-- ✅ ICI en dehors du PHP -->
-<link rel="stylesheet" href="/gamepack/public/assets/css/style-devine.css">
+<link rel="stylesheet" href="/Packajeux/public/assets/css/style-devine.css">
 
 <main>
   <h2>Devine le nombre 🔢</h2>

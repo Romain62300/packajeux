@@ -4,7 +4,7 @@ let gameActive = true;
 
 const cells = document.querySelectorAll(".cell");
 const turnInfo = document.getElementById("turnInfo");
-const clickSound = new Audio("/gamepack/public/assets/sounds/click.mp3");
+const clickSound = new Audio("/Packajeux/public/assets/sounds/click.mp3");
 
 function updateTurnInfo() {
   turnInfo.textContent = `Tour de : ${currentPlayer}`;
@@ -40,7 +40,7 @@ function highlightWinningCells(pattern) {
   const emoji = currentPlayer === "X" ? "❌" : "⭕️";
   turnInfo.textContent = `${emoji} a gagné ! 🎉`;
 
-  const audio = new Audio("/gamepack/public/assets/sounds/victory.mp3");
+  const audio = new Audio("/Packajeux/public/assets/sounds/victory.mp3");
   audio.play();
 
   // 🎊 Confettis

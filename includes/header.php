@@ -1,20 +1,43 @@
 <?php
+// Démarre la session si nécessaire
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
+
+/**
+ * BASE_URL auto :
+ * - Si tu sers depuis /public (php -S), BASE_URL = ''
+ * - Si tu es sous WAMP http://localhost/packajeux/, BASE_URL = '/packajeux'
+ * - On retire /public s'il apparaît dans le chemin
+ */
+$scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/'));
+$scriptDir = rtrim($scriptDir, '/');
+$BASE_URL  = $scriptDir;
+
+if (strpos($BASE_URL, '/public') !== false) {
+  $BASE_URL = str_replace('/public', '', $BASE_URL);
+}
+if ($BASE_URL === '/') {
+  $BASE_URL = '';
+}
+
+// Charge la configuration (doit définir $pdo)
+require_once __DIR__ . '/../config/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Gamepack</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Packajeux</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <!-- Styles -->
-  <link rel="stylesheet" href="/gamepack/public/assets/css/style.css?v=1.0.3">
-  <link rel="stylesheet" href="/gamepack/public/assets/css/dropdown-extra.css">
-  <link rel="stylesheet" href="/gamepack/public/assets/css/style_patch.css">
-  <link rel="stylesheet" href="/gamepack/public/assets/css/style-belote.css">
+  <link rel="stylesheet" href="<?= $BASE_URL ?>/assets/css/style.css?v=1.0.3">
+  <link rel="stylesheet" href="<?= $BASE_URL ?>/assets/css/dropdown-extra.css">
+  <link rel="stylesheet" href="<?= $BASE_URL ?>/assets/css/style_patch.css">
+  <link rel="stylesheet" href="<?= $BASE_URL ?>/assets/css/style-belote.css">
+
   <!-- Police Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 </head>
@@ -24,8 +47,8 @@ if (session_status() === PHP_SESSION_NONE) {
     <nav>
       <!-- Logo + Titre -->
       <div class="brand">
-        <img src="/gamepack/public/assets/images/logo.png" alt="Logo Gamepack" style="height: 100px;">
-        <h1>Gamepack 🎮</h1>
+        <img src="<?= $BASE_URL ?>/assets/images/logo.png" alt="Logo Packajeux" style="height:100px;">
+        <h1>Packajeux 🎮</h1>
       </div>
 
       <!-- Menu burger mobile -->
@@ -33,52 +56,44 @@ if (session_status() === PHP_SESSION_NONE) {
 
       <!-- Liens de navigation -->
       <ul id="nav-links">
-        <li><a href="/gamepack/public/index.php">Accueil</a></li>
+        <li><a href="<?= $BASE_URL ?>/index.php">Accueil</a></li>
+
         <li class="dropdown">
           <a href="#">Jeux 🎮</a>
           <ul class="dropdown-content">
-            <li><a href="/gamepack/public/jeux/morpion.php">❌ Morpion</a></li>
-            <li><a href="/gamepack/public/jeux/memory.php">🧠 Mémoire</a></li>
-            <li><a href="/gamepack/public/jeux/pfc.php">✊🖐✌ PFC</a></li>
-            <li><a href="/gamepack/public/jeux/devine.php">❓ Devine le nombre</a></li>
-            <li><a href="/gamepack/public/jeux/belote.php">🎴 Belote</a></li>
-
+            <li><a href="<?= $BASE_URL ?>/jeux/morpion.php">❌ Morpion</a></li>
+            <li><a href="<?= $BASE_URL ?>/jeux/memory.php">🧠 Mémoire</a></li>
+            <li><a href="<?= $BASE_URL ?>/jeux/pfc.php">✊🖐✌ PFC</a></li>
+            <li><a href="<?= $BASE_URL ?>/jeux/devine.php">❓ Devine le nombre</a></li>
+            <li><a href="<?= $BASE_URL ?>/jeux/belote.php">🎴 Belote</a></li>
           </ul>
         </li>
-        <li><a href="/gamepack/public/create/des.php" class="dice-link">🎲 Créer un dé</a></li>
-        <li><a href="/gamepack/public/jeux-quotidiens.php">🗓️ Jeux quotidiens</a></li>
-        <!-- Connexion / Déconnexion -->
-        <?php if (isset($_SESSION['utilisateur'])): ?>
-        <li><a href="/gamepack/public/logout.php">🔓 Déconnexion</a></li>
+
+        <li><a href="<?= $BASE_URL ?>/create/des.php" class="dice-link">🎲 Créer un dé</a></li>
+        <li><a href="<?= $BASE_URL ?>/jeux-quotidiens.php">🗓️ Jeux quotidiens</a></li>
+
+        <?php if (!empty($_SESSION['utilisateur'])): ?>
+        <li><a href="<?= $BASE_URL ?>/logout.php">🔓 Déconnexion</a></li>
         <?php else: ?>
-        <li><a href="/gamepack/public/login.php">🔐 Connexion</a></li>
+        <li><a href="<?= $BASE_URL ?>/login.php">🔐 Connexion</a></li>
         <?php endif; ?>
       </ul>
 
-      <!-- Affichage du pseudo + jetons -->
+      <!-- Pseudo + jetons -->
       <?php
-      require_once __DIR__ . '/../config/config.php';
-
-      if (isset($_SESSION['utilisateur'])) {
-          $userId = $_SESSION['utilisateur']['id'];
+      if (!empty($_SESSION['utilisateur'])) {
+        $userId = (int)$_SESSION['utilisateur']['id'] ?? 0;
+        if ($userId > 0) {
           $stmt = $pdo->prepare("SELECT pseudo, jetons FROM utilisateurs WHERE id = ?");
           $stmt->execute([$userId]);
-          $user = $stmt->fetch();
-
-          if ($user) {
-              echo '<div class="user-info" style="
-                  background-color: #ff69b4;
-                  color: white;
-                  padding: 8px 14px;
-                  border-radius: 12px;
-                  margin-left: 20px;
-                  box-shadow: 0 0 15px #ff69b4;
-                  font-weight: bold;
-                  transition: all 0.3s ease;
-              ">';
-              echo 'Bonjour ' . htmlspecialchars($user['pseudo']) . ' | Jetons : 💰 <strong>' . $user['jetons'] . '</strong>';
-              echo '</div>';
+          if ($user = $stmt->fetch()) {
+            echo '<div class="user-info" style="
+              background-color:#ff69b4;color:#fff;padding:8px 14px;border-radius:12px;
+              margin-left:20px;box-shadow:0 0 15px #ff69b4;font-weight:bold;">
+              Bonjour ' . htmlspecialchars($user['pseudo']) . ' | Jetons : 💰 <strong>' . (int)$user['jetons'] . '</strong>
+            </div>';
           }
+        }
       }
       ?>
 
@@ -90,6 +105,6 @@ if (session_status() === PHP_SESSION_NONE) {
     </nav>
   </header>
 
-  <!-- Scripts JS -->
-  <script src="/gamepack/public/assets/js/main.js"></script>
-  <script src="/gamepack/public/assets/js/menu.js"></script>
+  <!-- Scripts -->
+  <script src="<?= $BASE_URL ?>/assets/js/main.js"></script>
+  <script src="<?= $BASE_URL ?>/assets/js/menu.js"></script>

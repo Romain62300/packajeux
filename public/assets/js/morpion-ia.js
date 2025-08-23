@@ -142,7 +142,7 @@ function endGame(winner) {
   const emoji = winner === "X" ? "❌" : "⭕️";
   turnInfo.textContent = `${emoji} a gagné ! 🎉`;
   gameOver = true;
-  const audio = new Audio("/gamepack/public/assets/sounds/victory.mp3");
+  const audio = new Audio("/Packajeux/public/assets/sounds/victory.mp3");
   audio.play();
   confetti({
     particleCount: 80,

@@ -31,6 +31,6 @@ include_once("../../includes/header.php");
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script src="/gamepack/public/assets/js/<?= $script ?>"></script>
+<script src="/Packajeux/public/assets/js/<?= $script ?>"></script>
 
 <?php include_once("../../includes/footer.php"); ?>

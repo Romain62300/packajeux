@@ -2,7 +2,7 @@
 
 <main class="mentions-legales">
   <div class="logo-mentions">
-    <img src="/gamepack/public/assets/images/alakachan-logo.png" alt="Logo Alakachan Dev">
+    <img src="/Packajeux/public/assets/images/alakachan-logo.png" alt="Logo Alakachan Dev">
   </div>
   <h2>Mentions légales</h2>
 

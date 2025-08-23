@@ -1,5 +1,5 @@
-# Gamepack 🎮
-🔗 [Voir le dépôt GitHub Gamepack](https://github.com/Romain62300/gamepack)
+# Packajeux 🎮
+🔗 [Voir le dépôt GitHub Packajeux](https://github.com/Romain62300/Packajeux)
 
 📄 **Sommaire**
 - 🇫🇷 [Version française](#version-française)
@@ -7,14 +7,14 @@
 
 ## 🇫🇷 Version française
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Romain62300/gamepack)
-![GitHub last commit](https://img.shields.io/github/last-commit/Romain62300/gamepack)
+![GitHub repo size](https://img.shields.io/github/repo-size/Romain62300/Packajeux)
+![GitHub last commit](https://img.shields.io/github/last-commit/Romain62300/Packajeux)
 
 ---
 
-**Gamepack** est un projet personnel de développement web regroupant plusieurs mini-jeux accessibles depuis une interface simple, ludique et responsive. Le but est de proposer un ensemble de jeux gratuits directement jouables en ligne, avec une interface claire, intuitive et sans publicités.
+**Packajeux** est un projet personnel de développement web regroupant plusieurs mini-jeux accessibles depuis une interface simple, ludique et responsive. Le but est de proposer un ensemble de jeux gratuits directement jouables en ligne, avec une interface claire, intuitive et sans publicités.
 
-![Aperçu de Gamepack](./public/assets/images/apercu-gamepack.png)
+![Aperçu de Packajeux](./public/assets/images/apercu-Packajeux.png)
 
 ## 🎯 Objectifs du projet
 
@@ -33,7 +33,7 @@
 ## 🧠 Organisation du projet
 
 ```plaintext
-gamepack/
+Packajeux/
 ├── .vscode/
 ├── config/
 ├── includes/
@@ -92,7 +92,7 @@ Vous êtes libre de :
 ## 📬 Contact & retours
 
 Vous avez des idées, suggestions ou avez trouvé un bug ?
-N'hésitez pas à créer une [issue sur GitHub](https://github.com/Romain62300/gamepack/issues) ou à me contacter directement :
+N'hésitez pas à créer une [issue sur GitHub](https://github.com/Romain62300/Packajeux/issues) ou à me contacter directement :
 
 - 💌 Email : romainmonier.dev@gmail.com *(exemple à remplacer si besoin)*
 - 💼 LinkedIn : [linkedin.com/in/romainmonier](https://www.linkedin.com/in/romainmonier)
@@ -104,10 +104,10 @@ Je suis toujours ouvert aux échanges et aux collaborations 👋
 
 ## 🇬🇧 English version
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Romain62300/gamepack)
-![GitHub last commit](https://img.shields.io/github/last-commit/Romain62300/gamepack)
+![GitHub repo size](https://img.shields.io/github/repo-size/Romain62300/Packajeux)
+![GitHub last commit](https://img.shields.io/github/last-commit/Romain62300/Packajeux)
 
-**Gamepack** is a personal web development project bringing together several mini-games in a clean and user-friendly interface. The goal is to offer free online games, accessible to everyone, without ads or tracking.
+**Packajeux** is a personal web development project bringing together several mini-games in a clean and user-friendly interface. The goal is to offer free online games, accessible to everyone, without ads or tracking.
 
 🔗 [Live demo (Ngrok)](https://0c59-2a01-cb0c-688-ca00-591b-7041-900c-72a8.ngrok-free.app)
 
@@ -128,7 +128,7 @@ Je suis toujours ouvert aux échanges et aux collaborations 👋
 ## 🧠 Project Structure
 
 ```plaintext
-gamepack/
+Packajeux/
 ├── .vscode/
 ├── config/
 ├── includes/
@@ -185,7 +185,7 @@ Under the following terms:
 ## 📬 Contact & Feedback
 
 Have ideas, suggestions, or found a bug?
-Feel free to open an [issue on GitHub](https://github.com/Romain62300/gamepack/issues) or contact me directly:
+Feel free to open an [issue on GitHub](https://github.com/Romain62300/Packajeux/issues) or contact me directly:
 
 - 💌 Email: romainmonier.dev@gmail.com
 - 💼 LinkedIn: [linkedin.com/in/romainmonier](https://www.linkedin.com/in/romainmonier)

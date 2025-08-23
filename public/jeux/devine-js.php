@@ -13,7 +13,7 @@
     <button id="restart" style="display: none; margin-top: 1rem;">🔁 Rejouer</button>
   </div>
 </main>
-<script src="/gamepack/public/assets/js/devine.js"></script>
-<link rel="stylesheet" href="/gamepack/public/assets/css/style-devine.css">
+<script src="/Packajeux/public/assets/js/devine.js"></script>
+<link rel="stylesheet" href="/Packajeux/public/assets/css/style-devine.css">
 
 <?php include_once("../../includes/footer.php"); ?>

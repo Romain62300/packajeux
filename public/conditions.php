@@ -29,8 +29,8 @@ include_once("../../includes/header.php");
 </main>
 
 <!-- Chemins corrects ici -->
-<link rel="stylesheet" href="/gamepack/public/assets/css/grattage.css">
-<script src="/gamepack/public/assets/js/grattage.js"></script>
+<link rel="stylesheet" href="/Packajeux/public/assets/css/grattage.css">
+<script src="/Packajeux/public/assets/js/grattage.js"></script>
 <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
 <?php include_once("../../includes/footer.php"); ?>

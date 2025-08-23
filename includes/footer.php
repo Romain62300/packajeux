@@ -22,7 +22,7 @@
         <p>
           ✅ Sur rendez-vous (mail ou téléphone)<br>
           ⏱️ Réponse garantie sous 24h en semaine<br>
-          🔗 <a href="https://github.com/Romain62300/gamepack" target="_blank" rel="noopener">Voir le projet GitHub</a>
+          🔗 <a href="https://github.com/Romain62300/Packajeux" target="_blank" rel="noopener">Voir le projet GitHub</a>
         </p>
       </div>
     </div>
@@ -33,9 +33,9 @@
       </p>
 
       <div class="footer-links">
-        <a href="/gamepack/public/mentions-legales.php">Mentions légales</a> ·
-        <a href="/gamepack/public/conditions.php">Conditions d'utilisation</a> ·
-        <a href="/gamepack/public/confidentialite.php">Politique de confidentialité</a> ·
+        <a href="/Packajeux/public/mentions-legales.php">Mentions légales</a> ·
+        <a href="/Packajeux/public/conditions.php">Conditions d'utilisation</a> ·
+        <a href="/Packajeux/public/confidentialite.php">Politique de confidentialité</a> ·
         <a href="#">Gestion des cookies</a>
       </div>
     </div>
@@ -48,14 +48,14 @@
 $page = basename($_SERVER['PHP_SELF'], ".php");
 
 // 🔗 Inclusion JS auto
-$jsPath = "/gamepack/public/assets/js/$page.js";
+$jsPath = "/Packajeux/public/assets/js/$page.js";
 $jsFile = $_SERVER['DOCUMENT_ROOT'] . $jsPath;
 if (file_exists($jsFile)) {
     echo "<script src='$jsPath' defer></script>";
 }
 
 // 🎨 Inclusion CSS auto
-$cssPath = "/gamepack/public/assets/css/style-$page.css";
+$cssPath = "/Packajeux/public/assets/css/style-$page.css";
 $cssFile = $_SERVER['DOCUMENT_ROOT'] . $cssPath;
 if (file_exists($cssFile)) {
     echo "<link rel='stylesheet' href='$cssPath'>";

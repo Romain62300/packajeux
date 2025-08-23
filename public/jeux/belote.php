@@ -15,14 +15,14 @@
   <div id="tableBelote">
     <p>En attente de lancement...</p>
     <div class="cartes-dos">
-      <img src="/gamepack/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
-      <img src="/gamepack/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
-      <img src="/gamepack/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
-      <img src="/gamepack/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
+      <img src="/Packajeux/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
+      <img src="/Packajeux/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
+      <img src="/Packajeux/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
+      <img src="/Packajeux/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
     </div>
   </div>
 </div>
 
 <?php include '../../includes/footer.php'; ?>
-<link rel="stylesheet" href="/gamepack/public/assets/css/style-belote.css">
-<script src="/gamepack/public/assets/js/script-belote.js" defer></script>
+<link rel="stylesheet" href="/Packajeux/public/assets/css/style-belote.css">
+<script src="/Packajeux/public/assets/js/script-belote.js" defer></script>

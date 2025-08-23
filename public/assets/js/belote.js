@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
       <h2>Partie lancée en mode : ${mode === "annonces" ? "Avec annonces" : "Sans annonces"}</h2>
       <p>Distribution des cartes en cours...</p>
       <div class="cartes-dos">
-        <img src="/gamepack/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
-        <img src="/gamepack/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
-        <img src="/gamepack/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
-        <img src="/gamepack/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
+        <img src="/Packajeux/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
+        <img src="/Packajeux/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
+        <img src="/Packajeux/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
+        <img src="/Packajeux/public/assets/images/cartes/bleu-foncé.png" alt="Dos de carte">
       </div>
     `;
   });

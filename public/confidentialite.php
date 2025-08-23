@@ -4,7 +4,7 @@ include_once("../includes/header.php");
 
 <main class="legal-page">
   <div class="logo-mentions">
-    <img src="/gamepack/public/assets/images/alakachan-logo.png" alt="Logo Alakachan Dev">
+    <img src="/Packajeux/public/assets/images/alakachan-logo.png" alt="Logo Alakachan Dev">
   </div>
 
   <h2>Politique de confidentialité</h2>
@@ -13,7 +13,7 @@ include_once("../includes/header.php");
 
   <h3>Collecte des données</h3>
   <p>
-    Le site Gamepack ne collecte aucune donnée personnelle sans votre consentement explicite.<br>
+    Le site Packajeux ne collecte aucune donnée personnelle sans votre consentement explicite.<br>
     Les seules données collectées peuvent provenir de formulaires (ex : suggestions), et elles ne sont jamais utilisées
     à des fins commerciales.
   </p>
