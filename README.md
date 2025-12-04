@@ -94,7 +94,7 @@ Vous êtes libre de :
 Vous avez des idées, suggestions ou avez trouvé un bug ?
 N'hésitez pas à créer une [issue sur GitHub](https://github.com/Romain62300/Packajeux/issues) ou à me contacter directement :
 
-- 💌 Email : romainmonier.dev@gmail.com *(exemple à remplacer si besoin)*
+- 💌 Email : r.monier62@hotmail.com
 - 💼 LinkedIn : [linkedin.com/in/romainmonier](https://www.linkedin.com/in/romainmonier)
 
 Je suis toujours ouvert aux échanges et aux collaborations 👋
