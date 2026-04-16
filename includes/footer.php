@@ -28,14 +28,16 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 <strong>Alakachan Dev</strong> – Site créé avec ❤️ par
+      <p>
+        <img src="<?= $BASE_URL ?>/assets/images/alakachan-logo.png" alt="Alakachan Dev" style="height:30px; vertical-align:middle; margin-right:8px;">
+        © 2025 <strong>Alakachan Dev</strong> – Site créé avec ❤️ par
         <a href="https://github.com/Romain62300" target="_blank" rel="noopener">Romain Monier</a>
       </p>
 
       <div class="footer-links">
-        <a href="/Packajeux/public/mentions-legales.php">Mentions légales</a> ·
-        <a href="/Packajeux/public/conditions.php">Conditions d'utilisation</a> ·
-        <a href="/Packajeux/public/confidentialite.php">Politique de confidentialité</a> ·
+        <a href="<?= $BASE_URL ?>/mentions-legales.php">Mentions légales</a> ·
+        <a href="<?= $BASE_URL ?>/conditions.php">Conditions d'utilisation</a> ·
+        <a href="<?= $BASE_URL ?>/confidentialite.php">Politique de confidentialité</a> ·
         <a href="#">Gestion des cookies</a>
       </div>
     </div>
@@ -44,20 +46,21 @@
 </footer>
 
 <?php
-// 🔁 Déduction du nom de la page
+// Chargement automatique du JS et CSS spécifique à la page (si existant)
 $page = basename($_SERVER['PHP_SELF'], ".php");
 
-// 🔗 Inclusion JS auto
-$jsPath = "/Packajeux/public/assets/js/$page.js";
-$jsFile = $_SERVER['DOCUMENT_ROOT'] . $jsPath;
-if (file_exists($jsFile)) {
-    echo "<script src='$jsPath' defer></script>";
-}
+$jsRelative  = "/assets/js/$page.js";
+$cssRelative = "/assets/css/style-$page.css";
 
-// 🎨 Inclusion CSS auto
-$cssPath = "/Packajeux/public/assets/css/style-$page.css";
-$cssFile = $_SERVER['DOCUMENT_ROOT'] . $cssPath;
-if (file_exists($cssFile)) {
-    echo "<link rel='stylesheet' href='$cssPath'>";
+$jsAbsolute  = __DIR__ . "/../public" . $jsRelative;
+$cssAbsolute = __DIR__ . "/../public" . $cssRelative;
+
+if (file_exists($jsAbsolute)) {
+    echo "<script src='{$BASE_URL}{$jsRelative}' defer></script>";
+}
+if (file_exists($cssAbsolute)) {
+    echo "<link rel='stylesheet' href='{$BASE_URL}{$cssRelative}'>";
 }
 ?>
+</body>
+</html>

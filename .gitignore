@@ -1,6 +1,26 @@
-/vendor/
-/node_modules/
+# Outils locaux
+ngrok/
+*.exe
+
+# Dépendances
+node_modules/
+vendor/
+
+# Fichiers d'environnement
 .env
+.env.local
+config/config.local.php
+
+# Fichiers système
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+
+# Logs
 *.log
+error_log

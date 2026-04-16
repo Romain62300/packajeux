@@ -4,22 +4,8 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
-/**
- * BASE_URL auto :
- * - Si tu sers depuis /public (php -S), BASE_URL = ''
- * - Si tu es sous WAMP http://localhost/packajeux/, BASE_URL = '/packajeux'
- * - On retire /public s'il apparaît dans le chemin
- */
-$scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/'));
-$scriptDir = rtrim($scriptDir, '/');
-$BASE_URL  = $scriptDir;
-
-if (strpos($BASE_URL, '/public') !== false) {
-  $BASE_URL = str_replace('/public', '', $BASE_URL);
-}
-if ($BASE_URL === '/') {
-  $BASE_URL = '';
-}
+// BASE_URL en dur (local WAMP)
+$BASE_URL = '/packajeux/public';
 
 // Charge la configuration (doit définir $pdo)
 require_once __DIR__ . '/../config/config.php';
@@ -82,7 +68,7 @@ require_once __DIR__ . '/../config/config.php';
       <!-- Pseudo + jetons -->
       <?php
       if (!empty($_SESSION['utilisateur'])) {
-        $userId = (int)$_SESSION['utilisateur']['id'] ?? 0;
+        $userId = (int)($_SESSION['utilisateur']['id'] ?? 0);
         if ($userId > 0) {
           $stmt = $pdo->prepare("SELECT pseudo, jetons FROM utilisateurs WHERE id = ?");
           $stmt->execute([$userId]);

@@ -2,7 +2,7 @@
 $mode = $_GET['mode'] ?? '2players';
 $script = $mode === 'ia' ? 'morpion-ia.js' : 'morpion.js';
 
-include_once("../../includes/header.php");
+include_once(__DIR__ . "/../../includes/header.php");
 ?>
 
 <main>
@@ -21,7 +21,7 @@ include_once("../../includes/header.php");
 
   <p style="margin-top: 10px;">
     <strong>Mode actuel :</strong>
-    <?= $mode === 'ia' ? 'Contre l’ordinateur' : '2 Joueurs' ?>
+    <?= $mode === 'ia' ? 'Contre l\'ordinateur' : '2 Joueurs' ?>
   </p>
   <div class="game-options">
     <a href="?mode=ia" class="btn">Mode IA</a>
@@ -31,6 +31,6 @@ include_once("../../includes/header.php");
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script src="/Packajeux/public/assets/js/<?= $script ?>"></script>
+<script src="<?= $BASE_URL ?>/assets/js/<?= $script ?>"></script>
 
-<?php include_once("../../includes/footer.php"); ?>
+<?php include_once(__DIR__ . "/../../includes/footer.php"); ?>

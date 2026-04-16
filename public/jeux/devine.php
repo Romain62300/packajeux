@@ -1,6 +1,5 @@
 <?php
-session_start();
-include_once("../../includes/header.php");
+include_once(__DIR__ . "/../../includes/header.php");
 
 // Démarrage d'une partie
 if (!isset($_SESSION['nombre_a_deviner'])) {
@@ -27,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'])) {
 }
 
 if (isset($_POST['rejouer'])) {
-    session_unset();
+    unset($_SESSION['nombre_a_deviner'], $_SESSION['tentatives'], $_SESSION['message'], $_SESSION['partie_terminee']);
     header("Location: devine.php");
     exit();
 }
@@ -36,8 +35,7 @@ $message = $_SESSION['message'] ?? '';
 unset($_SESSION['message']);
 ?>
 
-<!-- ✅ ICI en dehors du PHP -->
-<link rel="stylesheet" href="/Packajeux/public/assets/css/style-devine.css">
+<link rel="stylesheet" href="<?= $BASE_URL ?>/assets/css/style-devine.css">
 
 <main>
   <h2>Devine le nombre 🔢</h2>
@@ -60,4 +58,4 @@ unset($_SESSION['message']);
   <?php endif; ?>
 </main>
 
-<?php include_once("../../includes/footer.php"); ?>
+<?php include_once(__DIR__ . "/../../includes/footer.php"); ?>
