@@ -1,8 +1,8 @@
-<?php include_once("../includes/header.php"); ?>
+<?php include_once(__DIR__ . '/../includes/header.php'); ?>
 
 <main class="mentions-legales">
   <div class="logo-mentions">
-    <img src="/Packajeux/public/assets/images/alakachan-logo.png" alt="Logo Alakachan Dev">
+    <img src="<?= $BASE_URL ?>/assets/images/alakachan-logo.png" alt="Logo Alakachan Dev">
   </div>
   <h2>Mentions légales</h2>
 
@@ -47,9 +47,9 @@
   <section>
     <h3>Responsabilité</h3>
     <p>
-      L’éditeur ne saurait être tenu responsable d’un mauvais usage des jeux proposés ou d’un bug technique.
+      L'éditeur ne saurait être tenu responsable d'un mauvais usage des jeux proposés ou d'un bug technique.
     </p>
   </section>
 </main>
 
-<?php include_once("../includes/footer.php"); ?>
+<?php include_once(__DIR__ . '/../includes/footer.php'); ?>
