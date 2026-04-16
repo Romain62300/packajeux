@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 21 avr. 2025 à 00:09
--- Version du serveur : 9.1.0
--- Version de PHP : 8.3.14
+-- Généré le : jeu. 16 avr. 2026 à 21:36
+-- Version du serveur : 8.4.7
+-- Version de PHP : 8.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `Packajeux`
+-- Base de données : `packajeux`
 --
 
 -- --------------------------------------------------------
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `familles`;
 CREATE TABLE IF NOT EXISTS `familles` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nom_famille` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `couleur_preferee` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nom_famille` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `couleur_preferee` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS `familles` (
 DROP TABLE IF EXISTS `jeux`;
 CREATE TABLE IF NOT EXISTS `jeux` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nom_jeu` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `url_jeu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nom_jeu` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `url_jeu` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `actif` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -79,7 +79,7 @@ DROP TABLE IF EXISTS `suggestions`;
 CREATE TABLE IF NOT EXISTS `suggestions` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_utilisateur` int DEFAULT NULL,
-  `idee_jeu` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `idee_jeu` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_suggestion` datetime DEFAULT CURRENT_TIMESTAMP,
   `lu` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -95,12 +95,13 @@ CREATE TABLE IF NOT EXISTS `suggestions` (
 DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `pseudo` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mot_de_passe` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pseudo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mot_de_passe` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_creation` datetime DEFAULT CURRENT_TIMESTAMP,
-  `role` enum('admin','joueur') COLLATE utf8mb4_unicode_ci DEFAULT 'joueur',
+  `role` enum('admin','joueur') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'joueur',
   `id_famille` int DEFAULT NULL,
+  `jetons` int DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `pseudo` (`pseudo`),
   UNIQUE KEY `email` (`email`),
