@@ -1,194 +1,150 @@
 # Packajeux 🎮
-🔗 [Voir le dépôt GitHub Packajeux](https://github.com/Romain62300/Packajeux)
 
-📄 **Sommaire**
-- 🇫🇷 [Version française](#version-française)
-- 🇬🇧 [English version](#english-version)
+> Site de mini-jeux en ligne gratuit, sans publicité, développé en PHP/MySQL.
 
-## 🇫🇷 Version française
-
-![GitHub repo size](https://img.shields.io/github/repo-size/Romain62300/Packajeux)
-![GitHub last commit](https://img.shields.io/github/last-commit/Romain62300/Packajeux)
-
----
-
-**Packajeux** est un projet personnel de développement web regroupant plusieurs mini-jeux accessibles depuis une interface simple, ludique et responsive. Le but est de proposer un ensemble de jeux gratuits directement jouables en ligne, avec une interface claire, intuitive et sans publicités.
+[![GitHub repo size](https://img.shields.io/github/repo-size/Romain62300/packajeux)](https://github.com/Romain62300/packajeux)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Romain62300/packajeux)](https://github.com/Romain62300/packajeux/commits/main)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 ![Aperçu de Packajeux](./public/assets/images/apercu-Packajeux.png)
 
-## 🎯 Objectifs du projet
+---
 
-- Créer une plateforme regroupant différents mini-jeux (réflexion, hasard, arcade, etc.)
-- Concevoir une structure modulaire facilement extensible
-- Apprendre à organiser un projet complet en PHP avec HTML/CSS/JS
-- Travailler avec Git et GitHub dans un contexte professionnel
+## 📋 À propos
 
-## 🔧 Technologies utilisées
+**Packajeux** est mon projet personnel de développement web full-stack, commencé en avril 2025. C'est une plateforme de mini-jeux jouables directement dans le navigateur, conçue comme terrain d'apprentissage pour construire un projet complet (front, back, base de données, déploiement).
 
-- HTML5 / CSS3
-- JavaScript (Vanilla)
-- PHP (structure légère, sans framework)
-- Git / GitHub
-
-## 🧠 Organisation du projet
-
-```plaintext
-Packajeux/
-├── .vscode/
-├── config/
-├── includes/
-├── public/
-│   ├── assets/
-│   │   ├── css/
-│   │   ├── images/
-│   │   └── js/
-│   └── jeux/
-│       ├── memory.php
-│       ├── morpion.php
-│       └── pfc.php
-├── src/
-│   ├── Controller/
-│   ├── Model/
-│   └── View/
-├── tests/
-├── README.md
-```
-
-## 🚀 Prochaines étapes
-
-- Ajouter les premiers mini-jeux (Morpion, Mémoire, Pierre-Feuille-Ciseaux…)
-- Créer un système de navigation entre les jeux
-- Améliorer le design et l’ergonomie
-- Optimiser pour mobile
-
-## 📦 Statut du projet
-
-🟢 En cours de développement
-Premier commit effectué le 6 avril 2025
-
-## 🙋‍♂️ Auteur
-
-Développé par Romain Monier
-📍 Lens, Hauts-de-France, France
-💼 [Portfolio (bientôt en ligne)](https://github.com/Romain62300)
-
-## 📄 Licence
-
-Ce projet est protégé par la licence **Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 International (CC BY-NC 4.0)**.
-[Version française de la licence](./LICENSE-fr.txt)
-
-Vous êtes libre de :
-- 🔄 **Partager** : copier et redistribuer le contenu du projet
-- 🛠️ **Adapter** : le modifier, le transformer, l’adapter à votre convenance
-
-À condition de :
-- 👤 **Me créditer** en tant qu’auteur (Romain Monier)
-- ❌ **Ne pas utiliser ce projet à des fins commerciales**
-
-🔗 Pour consulter les termes complets de la licence :
-[https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)
-
-
-## 📬 Contact & retours
-
-Vous avez des idées, suggestions ou avez trouvé un bug ?
-N'hésitez pas à créer une [issue sur GitHub](https://github.com/Romain62300/Packajeux/issues) ou à me contacter directement :
-
-- 💌 Email : r.monier62@hotmail.com
-- 💼 LinkedIn : [linkedin.com/in/romainmonier](https://www.linkedin.com/in/romainmonier)
-
-Je suis toujours ouvert aux échanges et aux collaborations 👋
-
+Développé par **Romain Monier** sous le statut auto-entrepreneur **Alakachan Dev**.
 
 ---
 
-## 🇬🇧 English version
+## ✨ Fonctionnalités
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Romain62300/Packajeux)
-![GitHub last commit](https://img.shields.io/github/last-commit/Romain62300/Packajeux)
+### 🎮 Jeux fonctionnels
 
-**Packajeux** is a personal web development project bringing together several mini-games in a clean and user-friendly interface. The goal is to offer free online games, accessible to everyone, without ads or tracking.
+| Jeu | Description | Statut |
+|-----|-------------|--------|
+| **Morpion** | 3×3 classique avec mode 2 joueurs et IA minimax | ✅ |
+| **Pierre-Feuille-Ciseaux** | Contre l'ordinateur avec score | ✅ |
+| **Devine le nombre** | Nombre mystère entre 1 et 100 | ✅ |
+| **Jeu de Mémoire** | 4×4 cartes avec compteur de temps et coups | ✅ |
+| **Belote** | Jeu de cartes à 4 joueurs | 🚧 En développement |
 
-🔗 [Live demo (Ngrok)](https://0c59-2a01-cb0c-688-ca00-591b-7041-900c-72a8.ngrok-free.app)
+### 🛠️ Fonctionnalités transverses
 
-## 🎯 Project Goals
+- 👤 **Authentification** : inscription, connexion, sessions
+- 🌓 **Mode sombre** avec persistance
+- 📱 **Responsive** mobile et desktop
+- 🪙 **Système de jetons** virtuels
+- 🎨 **Design cohérent** avec logo custom SVG
+- ⚖️ **Pages légales** : mentions, CGU, confidentialité
 
-- Create a platform that groups several simple games (logic, arcade, randomness, etc.)
-- Design a modular structure that's easy to expand
-- Practice organizing a complete PHP project with HTML/CSS/JS
-- Use Git and GitHub like in a real-world workflow
+---
 
-## 🔧 Technologies
+## 🔧 Stack technique
 
-- HTML5 / CSS3
-- Vanilla JavaScript
-- PHP (no framework)
-- Git / GitHub
+- **Langage** : PHP 8+ (sans framework)
+- **Base de données** : MySQL 8+
+- **Frontend** : HTML5, CSS3, JavaScript vanilla
+- **Sécurité** : PDO avec requêtes préparées, `password_hash()`, `htmlspecialchars()`
+- **Versioning** : Git / GitHub
+- **Environnement de dev** : WAMP / VS Code
 
-## 🧠 Project Structure
+---
 
-```plaintext
-Packajeux/
-├── .vscode/
-├── config/
-├── includes/
-├── public/
-│   ├── assets/
-│   │   ├── css/
-│   │   ├── images/
-│   │   └── js/
-│   └── jeux/
-│       ├── memory.php
-│       ├── morpion.php
-│       └── pfc.php
-├── src/
-│   ├── Controller/
-│   ├── Model/
-│   └── View/
-├── tests/
-├── README.md
+## 📁 Structure du projet
+
+```
+packajeux/
+├── config/              # Configuration PDO / BDD
+├── database/            # Dump SQL pour import
+├── includes/            # Header et footer partagés
+├── public/              # Racine web
+│   ├── assets/          # CSS, JS, images
+│   ├── jeux/            # Pages des jeux
+│   ├── jeux-quotidiens/ # Jeux bonus quotidiens
+│   ├── index.php
+│   ├── login.php
+│   └── register.php
+├── src/                 # Classes PHP (à venir)
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
-## 🚀 Next Steps
+## 🚀 Installation locale
 
-- Add first mini-games (Tic Tac Toe, Memory, Rock-Paper-Scissors…)
-- Build navigation system between games
-- Improve UI/UX
-- Make the site mobile friendly
+### Prérequis
+- WAMP / XAMPP / MAMP
+- PHP 8.0+
+- MySQL 8+
 
-## 📦 Project Status
+### Étapes
 
-🟢 In development
-First commit on April 6, 2025
+1. Cloner le repo dans le dossier `www` de WAMP :
+```bash
+cd C:\wamp64\www
+git clone https://github.com/Romain62300/packajeux.git
+```
 
-## 🙋‍♂️ Author
+2. Importer la base de données :
+   - Ouvrir phpMyAdmin
+   - Créer une base `packajeux`
+   - Importer `database/packajeux.sql`
 
-Developed by Romain Monier
-📍 Lens, France
-💼 [GitHub Portfolio](https://github.com/Romain62300)
+3. Vérifier la configuration dans `config/config.php` (valeurs par défaut OK pour WAMP local).
 
-## 📄 License (EN)
+4. Accéder au site : `http://localhost/packajeux/public/`
 
-This project is licensed under the **Creative Commons Attribution - NonCommercial 4.0 International (CC BY-NC 4.0)**.
- [Version originale (EN)](https://creativecommons.org/licenses/by-nc/4.0/)
+---
 
-You are free to:
-- 🔄 **Share** — copy and redistribute the material in any medium or format
-- 🛠️ **Adapt** — remix, transform, and build upon the material
+## 📚 Ce que j'ai appris en le développant
 
-Under the following terms:
-- 👤 **Attribution** — You must give appropriate credit (Romain Monier)
-- ❌ **NonCommercial** — You may not use the material for commercial purposes
+- **Architecture** : séparation public/config/includes, chemins relatifs sécurisés avec `__DIR__`
+- **Sécurité** : PDO en mode exception, requêtes préparées, hachage bcrypt des mots de passe, protection XSS
+- **Session & authentification** : gestion propre des sessions PHP, cookies "remember me"
+- **UX** : mode sombre avec persistance, formulaires accessibles, feedback visuel
+- **Debug** : résolution de bugs de chemins entre environnements (WAMP, serveur)
+- **Git** : commits atomiques, `.gitignore`, `git rm --cached`, récupération de fichiers supprimés
+- **Algos** : implémentation minimax pour l'IA du morpion
 
-🔗 Full license details:
-[https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)
-## 📬 Contact & Feedback
+---
 
-Have ideas, suggestions, or found a bug?
-Feel free to open an [issue on GitHub](https://github.com/Romain62300/Packajeux/issues) or contact me directly:
+## 🤖 Utilisation d'outils IA
 
-- 💌 Email: romainmonier.dev@gmail.com
-- 💼 LinkedIn: [linkedin.com/in/romainmonier](https://www.linkedin.com/in/romainmonier)
+Pour les aspects complexes (debug, architecture, bonnes pratiques), je m'appuie sur des assistants IA (Claude, Copilot) comme le font la majorité des développeurs modernes. **Tout le code est compris, validé et maintenu par mes soins** — je peux expliquer chaque partie du projet.
 
-I'm always open to discussion and collaboration 👋
+---
 
+## 🗺️ Roadmap
+
+- [ ] Finir le jeu de Belote (multijoueur en temps réel)
+- [ ] Migrer les tables MyISAM vers InnoDB + clés étrangères
+- [ ] Ajouter un leaderboard global
+- [ ] Mise en ligne sur un hébergeur pro
+- [ ] Ajouter 2-3 nouveaux jeux (Puissance 4, 2048, Pendu)
+- [ ] Ajouter des tests automatisés
+- [ ] Migration progressive vers une architecture MVC
+
+---
+
+## 📄 Licence
+
+Ce projet est sous licence **Creative Commons Attribution - Pas d'Utilisation Commerciale 4.0 International (CC BY-NC 4.0)**.
+
+Vous pouvez **partager et adapter** ce projet à condition de **créditer l'auteur** et de **ne pas l'utiliser commercialement**.
+
+[Voir la licence complète](https://creativecommons.org/licenses/by-nc/4.0/) • [Version française](./LICENSE-fr.txt)
+
+---
+
+## 👤 Contact
+
+**Romain Monier** — Développeur web junior
+📍 Lens, Hauts-de-France
+🏢 Auto-entrepreneur Alakachan Dev
+
+- 📧 [r.monier62@hotmail.com](mailto:r.monier62@hotmail.com)
+- 💼 [LinkedIn](https://www.linkedin.com/in/romainmonier)
+- 🐙 [GitHub](https://github.com/Romain62300)
+- 🐛 [Signaler un bug](https://github.com/Romain62300/packajeux/issues)
