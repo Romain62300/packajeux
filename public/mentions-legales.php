@@ -1,53 +1,62 @@
 <?php include_once(__DIR__ . '/../includes/header.php'); ?>
 
-<main class="mentions-legales">
-  <div class="logo-mentions">
-    <img src="<?= $BASE_URL ?>/assets/images/alakachan-logo.png" alt="Logo Alakachan Dev">
-  </div>
+<main class="legal-page">
   <h2>Mentions légales</h2>
 
   <section>
     <h3>Éditeur du site</h3>
     <p>
-      <strong>Alakachan Dev</strong> (auto-entreprise)<br>
-      Romain Monier<br>
-      24 Avenue Raoul Briquet, Apt 4<br>
-      62300 Lens, France<br>
-      📧 r.monier62@hotmail.com<br>
-      📱 07 72 02 94 68
+      Ce site est un <strong>projet personnel non commercial</strong>.<br>
+      Éditeur : <strong>Romain Monier</strong><br>
+      📍 Lens, Hauts-de-France, France<br>
+      📧 <a href="mailto:r.monier62@hotmail.com">r.monier62@hotmail.com</a>
     </p>
   </section>
 
   <section>
     <h3>Hébergement</h3>
     <p>
-      Hébergé localement pour usage pédagogique (WAMP / localhost).<br>
-      Le site pourra être hébergé à terme par un prestataire professionnel si publication en ligne.
+      Le site est actuellement hébergé localement (environnement de développement WAMP) à des fins d'apprentissage
+      et de test.<br>
+      Lors de la mise en ligne, les informations d'hébergement seront mises à jour ici.
+    </p>
+  </section>
+
+  <section>
+    <h3>Nature du projet</h3>
+    <p>
+      <strong>Packajeux</strong> est un projet personnel de développement web destiné à l'apprentissage.<br>
+      Il ne s'agit pas d'un service commercial : aucune vente, aucun paiement, aucune activité lucrative n'est
+      proposée à travers ce site.<br>
+      Le code source est disponible sur <a href="https://github.com/Romain62300/packajeux" target="_blank"
+        rel="noopener">GitHub</a> sous licence Creative Commons BY-NC 4.0.
     </p>
   </section>
 
   <section>
     <h3>Propriété intellectuelle</h3>
     <p>
-      Tous les contenus (textes, images, logos, jeux) sont la propriété de <strong>Romain Monier</strong> ou utilisés
-      avec autorisation.<br>
-      Toute reproduction ou utilisation sans autorisation est interdite.
-    </p>
-  </section>
-
-  <section>
-    <h3>Protection des données</h3>
-    <p>
-      Ce site ne collecte pas de données personnelles sans votre consentement explicite.<br>
-      Les cookies sont utilisés uniquement pour des raisons techniques (ex : thème sombre).<br>
-      Pour toute demande : contactez <a href="mailto:r.monier62@hotmail.com">r.monier62@hotmail.com</a>
+      Les contenus originaux du site (textes, code, logo, design) sont la propriété de <strong>Romain Monier</strong>.<br>
+      Toute reproduction à des fins commerciales est interdite sans autorisation préalable.<br>
+      Les images illustrant les jeux (icônes d'animaux, etc.) proviennent de sources libres de droits ou sont
+      utilisées dans un cadre non commercial conformément à la licence du projet.
     </p>
   </section>
 
   <section>
     <h3>Responsabilité</h3>
     <p>
-      L'éditeur ne saurait être tenu responsable d'un mauvais usage des jeux proposés ou d'un bug technique.
+      Ce site étant un projet en développement, l'éditeur ne peut garantir l'absence totale de bugs, d'erreurs ou
+      d'interruptions de service.<br>
+      L'utilisation du site se fait sous la responsabilité de l'utilisateur.
+    </p>
+  </section>
+
+  <section>
+    <h3>Contact</h3>
+    <p>
+      Pour toute question relative à ce site, vous pouvez me contacter par email à l'adresse
+      <a href="mailto:r.monier62@hotmail.com">r.monier62@hotmail.com</a>.
     </p>
   </section>
 </main>
