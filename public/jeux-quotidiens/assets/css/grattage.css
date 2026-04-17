@@ -1,0 +1,47 @@
+.grattage-container {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #ff69b4;
+}
+
+.grattage-container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.grattage-container .info {
+  font-style: italic;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.scratch-zone {
+  position: relative;
+  width: 300px;
+  margin: 30px auto;
+  border: 3px solid #ff69b4;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.4);
+}
+
+#scratchCanvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: grab;
+}
+
+.gain-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #ff69b4;
+  z-index: 1;
+}
