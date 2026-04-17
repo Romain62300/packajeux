@@ -1,0 +1,122 @@
+.memory-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+  font-size: 1.1rem;
+}
+
+.memory-board {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  grid-template-rows: repeat(4, 120px);
+  gap: 10px;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.memory-card {
+  width: 120px;
+  height: 120px;
+  background-color: #2E3A59;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  transition: transform 0.3s, background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.memory-card:hover:not(.flipped):not(.matched) {
+  transform: scale(1.05);
+  background-color: #3a4670;
+}
+
+.memory-card.flipped {
+  background-color: #fff;
+  border: 2px solid #9333ea;
+}
+
+.memory-card.matched {
+  background-color: #c3e6cb;
+  border: 2px solid #28a745;
+  cursor: default;
+}
+
+.memory-card img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  display: none;
+}
+
+.memory-card.flipped img,
+.memory-card.matched img {
+  display: block;
+}
+
+.memory-card::before {
+  content: "?";
+  color: #ffd54f;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.memory-card.flipped::before,
+.memory-card.matched::before {
+  display: none;
+}
+
+.memory-controls {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.memory-win {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.dark-mode .memory-card.flipped {
+  background-color: #2a2a2a;
+  border-color: #ec4899;
+}
+
+body.dark-mode .memory-card.matched {
+  background-color: #1e4620;
+  border-color: #4caf50;
+}
+
+body.dark-mode .memory-win {
+  background-color: #1e4620;
+  color: #c3e6cb;
+}
+
+@media (max-width: 600px) {
+  .memory-board {
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(4, 70px);
+    gap: 6px;
+  }
+  .memory-card {
+    width: 70px;
+    height: 70px;
+  }
+  .memory-stats {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+}
