@@ -1,6 +1,6 @@
 # Packajeux 🎮
 
-> Site de mini-jeux en ligne gratuit, sans publicité, développé en PHP/MySQL.
+> Plateforme de mini-jeux en ligne développée en PHP/MySQL.
 
 [![GitHub repo size](https://img.shields.io/github/repo-size/Romain62300/packajeux)](https://github.com/Romain62300/packajeux)
 [![GitHub last commit](https://img.shields.io/github/last-commit/Romain62300/packajeux)](https://github.com/Romain62300/packajeux/commits/main)
@@ -12,43 +12,49 @@
 
 ## 📋 À propos
 
-**Packajeux** est mon projet personnel de développement web full-stack, commencé en avril 2025. C'est une plateforme de mini-jeux jouables directement dans le navigateur, conçue comme terrain d'apprentissage pour construire un projet complet (front, back, base de données, déploiement).
+**Packajeux** est un projet personnel de développement web full-stack, commencé en avril 2025.
 
-Développé par **Romain Monier** sous le statut auto-entrepreneur **Alakachan Dev**.
+L’objectif est de construire une plateforme de mini-jeux jouables directement dans le navigateur, tout en travaillant sur un projet complet : conception, développement, base de données, sécurité et déploiement.
+
+Développé par **Romain Monier**, dans le cadre de mes projets personnels et de mon activité **Alakachan Dev**.
 
 ---
 
 ## ✨ Fonctionnalités
 
-### 🎮 Jeux fonctionnels
+### 🎮 Jeux disponibles
 
-| Jeu | Description | Statut |
-|-----|-------------|--------|
-| **Morpion** | 3×3 classique avec mode 2 joueurs et IA minimax | ✅ |
-| **Pierre-Feuille-Ciseaux** | Contre l'ordinateur avec score | ✅ |
-| **Devine le nombre** | Nombre mystère entre 1 et 100 | ✅ |
-| **Jeu de Mémoire** | 4×4 cartes avec compteur de temps et coups | ✅ |
-| **Belote** | Jeu de cartes à 4 joueurs | 🚧 En développement |
+| Jeu                        | Description                             | Statut      |
+| -------------------------- | --------------------------------------- | ----------- |
+| **Morpion**                | 3×3 avec mode 2 joueurs et IA (minimax) | ✅           |
+| **Pierre-Feuille-Ciseaux** | Contre l’ordinateur avec score          | ✅           |
+| **Devine le nombre**       | Nombre mystère entre 1 et 100           | ✅           |
+| **Jeu de Mémoire**         | 4×4 avec compteur de temps et coups     | ✅           |
+| **Belote**                 | Jeu de cartes à 4 joueurs               | 🚧 En cours |
 
-### 🛠️ Fonctionnalités transverses
+### 🛠️ Fonctionnalités globales
 
-- 👤 **Authentification** : inscription, connexion, sessions
-- 🌓 **Mode sombre** avec persistance
-- 📱 **Responsive** mobile et desktop
-- 🪙 **Système de jetons** virtuels
-- 🎨 **Design cohérent** avec logo custom SVG
-- ⚖️ **Pages légales** : mentions, CGU, confidentialité
+* 👤 Authentification (inscription, connexion, sessions)
+* 🌓 Mode sombre avec persistance
+* 📱 Interface responsive (mobile / desktop)
+* 🪙 Système de jetons virtuels
+* 🎨 Interface cohérente avec logo personnalisé
+* ⚖️ Pages légales (mentions, CGU, confidentialité)
 
 ---
 
 ## 🔧 Stack technique
 
-- **Langage** : PHP 8+ (sans framework)
-- **Base de données** : MySQL 8+
-- **Frontend** : HTML5, CSS3, JavaScript vanilla
-- **Sécurité** : PDO avec requêtes préparées, `password_hash()`, `htmlspecialchars()`
-- **Versioning** : Git / GitHub
-- **Environnement de dev** : WAMP / VS Code
+* **Backend** : PHP 8 (sans framework)
+* **Base de données** : MySQL
+* **Frontend** : HTML5, CSS3, JavaScript (vanilla)
+* **Sécurité** :
+
+  * PDO avec requêtes préparées
+  * `password_hash()` pour les mots de passe
+  * `htmlspecialchars()` pour prévenir les failles XSS
+* **Versioning** : Git / GitHub
+* **Environnement de développement** : WAMP / VS Code
 
 ---
 
@@ -56,95 +62,90 @@ Développé par **Romain Monier** sous le statut auto-entrepreneur **Alakachan D
 
 ```
 packajeux/
-├── config/              # Configuration PDO / BDD
-├── database/            # Dump SQL pour import
-├── includes/            # Header et footer partagés
+├── config/              # Configuration BDD (PDO)
+├── database/            # Dump SQL
+├── includes/            # Header / footer
 ├── public/              # Racine web
 │   ├── assets/          # CSS, JS, images
 │   ├── jeux/            # Pages des jeux
-│   ├── jeux-quotidiens/ # Jeux bonus quotidiens
+│   ├── jeux-quotidiens/ # Jeux bonus
 │   ├── index.php
 │   ├── login.php
 │   └── register.php
-├── src/                 # Classes PHP (à venir)
+├── src/                 # Classes PHP (évolution future)
 ├── .gitignore
 ├── LICENSE
 └── README.md
 ```
 
+---
+
 ## 🚀 Installation locale
 
 ### Prérequis
-- WAMP / XAMPP / MAMP
-- PHP 8.0+
-- MySQL 8+
 
-### Étapes
+* WAMP / XAMPP / MAMP
+* PHP 8+
+* MySQL
 
-1. Cloner le repo dans le dossier `www` de WAMP :
+### Installation
+
 ```bash
 cd C:\wamp64\www
 git clone https://github.com/Romain62300/packajeux.git
 ```
 
-2. Importer la base de données :
-   - Ouvrir phpMyAdmin
-   - Créer une base `packajeux`
-   - Importer `database/packajeux.sql`
+1. Créer une base de données `packajeux` via phpMyAdmin
+2. Importer le fichier `database/packajeux.sql`
+3. Vérifier la configuration dans `config/config.php`
+4. Lancer le projet :
 
-3. Vérifier la configuration dans `config/config.php` (valeurs par défaut OK pour WAMP local).
-
-4. Accéder au site : `http://localhost/packajeux/public/`
-
----
-
-## 📚 Ce que j'ai appris en le développant
-
-- **Architecture** : séparation public/config/includes, chemins relatifs sécurisés avec `__DIR__`
-- **Sécurité** : PDO en mode exception, requêtes préparées, hachage bcrypt des mots de passe, protection XSS
-- **Session & authentification** : gestion propre des sessions PHP, cookies "remember me"
-- **UX** : mode sombre avec persistance, formulaires accessibles, feedback visuel
-- **Debug** : résolution de bugs de chemins entre environnements (WAMP, serveur)
-- **Git** : commits atomiques, `.gitignore`, `git rm --cached`, récupération de fichiers supprimés
-- **Algos** : implémentation minimax pour l'IA du morpion
+```text
+http://localhost/packajeux/public/
+```
 
 ---
 
-## 🤖 Utilisation d'outils IA
+## 📚 Ce que j’ai appris
 
-Pour les aspects complexes (debug, architecture, bonnes pratiques), je m'appuie sur des assistants IA (Claude, Copilot) comme le font la majorité des développeurs modernes. **Tout le code est compris, validé et maintenu par mes soins** — je peux expliquer chaque partie du projet.
+Ce projet m’a permis de travailler sur :
+
+* Structuration d’un projet PHP (séparation public / includes / config)
+* Gestion des chemins sécurisés avec `__DIR__`
+* Sécurisation des données (PDO, XSS, hash des mots de passe)
+* Gestion des sessions et authentification
+* Amélioration de l’expérience utilisateur (mode sombre, feedback visuel)
+* Résolution de bugs liés aux environnements locaux (WAMP)
+* Utilisation de Git (commits propres, gestion des fichiers)
+* Implémentation d’algorithmes (minimax pour l’IA du morpion)
 
 ---
 
 ## 🗺️ Roadmap
 
-- [ ] Finir le jeu de Belote (multijoueur en temps réel)
-- [ ] Migrer les tables MyISAM vers InnoDB + clés étrangères
-- [ ] Ajouter un leaderboard global
-- [ ] Mise en ligne sur un hébergeur pro
-- [ ] Ajouter 2-3 nouveaux jeux (Puissance 4, 2048, Pendu)
-- [ ] Ajouter des tests automatisés
-- [ ] Migration progressive vers une architecture MVC
+* [ ] Finaliser le jeu de Belote (multijoueur)
+* [ ] Migration vers InnoDB + relations SQL
+* [ ] Ajout d’un leaderboard
+* [ ] Déploiement en ligne
+* [ ] Ajout de nouveaux jeux (Puissance 4, 2048…)
+* [ ] Mise en place de tests
+* [ ] Évolution vers une architecture MVC
 
 ---
 
 ## 📄 Licence
 
-Ce projet est sous licence **Creative Commons Attribution - Pas d'Utilisation Commerciale 4.0 International (CC BY-NC 4.0)**.
-
-Vous pouvez **partager et adapter** ce projet à condition de **créditer l'auteur** et de **ne pas l'utiliser commercialement**.
-
-[Voir la licence complète](https://creativecommons.org/licenses/by-nc/4.0/) • [Version française](./LICENSE-fr.txt)
+Projet sous licence **CC BY-NC 4.0**
+Utilisation libre avec attribution, usage non commercial uniquement.
 
 ---
 
 ## 👤 Contact
 
-**Romain Monier** — Développeur web junior
+**Romain Monier** — Développeur web
 📍 Lens, Hauts-de-France
-🏢 Auto-entrepreneur Alakachan Dev
 
-- 📧 [r.monier62@hotmail.com](mailto:r.monier62@hotmail.com)
-- 💼 [LinkedIn](https://www.linkedin.com/in/romainmonier)
-- 🐙 [GitHub](https://github.com/Romain62300)
-- 🐛 [Signaler un bug](https://github.com/Romain62300/packajeux/issues)
+* 📧 [r.monier62@hotmail.com](mailto:r.monier62@hotmail.com)
+* 💼 LinkedIn : https://www.linkedin.com/in/romainmonier
+* 🐙 GitHub : https://github.com/Romain62300
+* 🐛 Issues : https://github.com/Romain62300/packajeux/issues
