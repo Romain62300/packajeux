@@ -16,7 +16,7 @@
 
 L’objectif est de construire une plateforme de mini-jeux jouables directement dans le navigateur, tout en travaillant sur un projet complet : conception, développement, base de données, sécurité et déploiement.
 
-Développé par **Romain Monier**, dans le cadre de mes projets personnels et de mon activité **Alakachan Dev**.
+Développé par **Romain Monier**, dans le cadre de mes projets personnels d'apprentissage du développement web.
 
 ---
 
