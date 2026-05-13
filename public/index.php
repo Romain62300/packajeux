@@ -48,6 +48,15 @@ include_once("../includes/header.php");
       <a href="<?= $BASE_URL ?>/jeux/devine.php" class="btn">Jouer</a>
     </div>
 
+<div class="game-card">
+  <img src="<?= $BASE_URL ?>/assets/images/belote.png" alt="Solitaire">
+  <h3>Solitaire</h3>
+  <p>Disposez toutes les cartes sur les fondations, du As au Roi !</p>
+  <a href="<?= $BASE_URL ?>/jeux/solitaire.php" class="btn">Jouer</a>
+</div>
+
+
+
     <div class="game-card">
       <img src="<?= $BASE_URL ?>/assets/images/belote.png" alt="Belote">
       <h3>Belote</h3>

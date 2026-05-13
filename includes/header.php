@@ -51,6 +51,7 @@ require_once __DIR__ . '/../config/config.php';
             <li><a href="<?= $BASE_URL ?>/jeux/memory.php">🧠 Mémoire</a></li>
             <li><a href="<?= $BASE_URL ?>/jeux/pfc.php">✊🖐✌ PFC</a></li>
             <li><a href="<?= $BASE_URL ?>/jeux/devine.php">❓ Devine le nombre</a></li>
+            <li><a href="<?= $BASE_URL ?>/jeux/solitaire.php">🃏 Solitaire</a></li>
             <li><a href="<?= $BASE_URL ?>/jeux/belote.php">🎴 Belote</a></li>
           </ul>
         </li>
