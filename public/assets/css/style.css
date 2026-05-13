@@ -556,6 +556,66 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   outline-offset: 2px;
 }
 
+/* BOUTONS CTA - Se connecter / Créer un compte */
+.cta-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0;
+  flex-wrap: wrap;
+}
+
+.cta-container .btn {
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+}
+
+.cta-container a:first-child {
+  background-color: transparent;
+  border: 2px solid #2E3A59;
+  color: #2E3A59;
+}
+.cta-container a:first-child:hover {
+  background-color: #2E3A59;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.cta-container a:last-child {
+  background-color: #d32f2f;
+  border: 2px solid #d32f2f;
+  color: #fff;
+}
+.cta-container a:last-child:hover {
+  background-color: #b71c1c;
+  border-color: #b71c1c;
+  transform: scale(1.05);
+}
+
+/* Dark mode */
+body.dark-mode .cta-container a:first-child {
+  border-color: #ffd54f;
+  color: #ffd54f;
+}
+body.dark-mode .cta-container a:first-child:hover {
+  background-color: #ffd54f;
+  color: #121212;
+}
+
+/* Créer un dé — lien normal comme les autres */
+.dice-link {
+  background-color: transparent !important;
+  color: #fff !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
 
 /* ======================================================
    >>> RESPONSIVE
