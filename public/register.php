@@ -24,7 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if ($e->getCode() == 23000) {
                 $message = "❌ Un compte existe déjà avec cet email.";
             } else {
-                $message = "Erreur : " . $e->getMessage();
+                error_log("Erreur inscription PDO : " . $e->getMessage());
+                $message = "❌ Une erreur inattendue s'est produite. Veuillez réessayer.";
             }
         }
     }
@@ -37,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <h2 class="auth-title">Créer un compte</h2>
 
     <?php if ($message): ?>
-    <p class="auth-error"><?= $message ?></p>
+    <p class="auth-error"><?= htmlspecialchars($message, ENT_QUOTES, 'UTF-8') ?></p>
     <?php endif; ?>
 
     <form method="post" class="auth-form">

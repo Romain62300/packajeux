@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Sauvegarde dans le fichier
     $message = "Jeu suggéré : $suggestion\nType : $type\n\n";
-    file_put_contents('suggestions.txt', $message, FILE_APPEND);
+    file_put_contents(__DIR__ . '/../data/suggestions.txt', $message, FILE_APPEND);
 
     // ✅ Redirection vers jeux.php avec message
     header("Location: jeux.php?success=1");

@@ -30,7 +30,7 @@
       }
     }
     $rand = $customFaces[array_rand($customFaces)];
-    echo "<p>Résultat du lancer : <strong>$rand</strong></p>";
+    echo "<p>Résultat du lancer : <strong>" . htmlspecialchars($rand, ENT_QUOTES, 'UTF-8') . "</strong></p>";
   }
   ?>
 

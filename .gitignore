@@ -1,5 +1,6 @@
 # Outils locaux
 ngrok/
+.claude/
 *.exe
 
 # Dépendances
@@ -24,3 +25,6 @@ desktop.ini
 # Logs
 *.log
 error_log
+
+# Données utilisateurs (hors dépôt)
+data/suggestions.txt

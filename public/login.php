@@ -22,7 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Gère l'option "Se souvenir de moi" avec un cookie
         if (!empty($_POST['remember'])) {
-            setcookie("email", $email, time() + (86400 * 30), "/"); // 30 jours
+            setcookie("email", $email, [
+                'expires'  => time() + (86400 * 30),
+                'path'     => '/',
+                'secure'   => true,
+                'httponly' => true,
+                'samesite' => 'Lax',
+            ]);
         }
 
         // Redirige vers le tableau de bord

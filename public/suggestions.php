@@ -7,7 +7,7 @@ include_once("../includes/header.php");
   <h2>Suggestions reçues 💡</h2>
 
   <?php
-  $filepath = __DIR__ . '/suggestions.txt';
+  $filepath = __DIR__ . '/../data/suggestions.txt';
 
   if (file_exists($filepath)) {
     $lines = file($filepath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
