@@ -1,0 +1,167 @@
+/* ── Coffre au Trésor ── */
+.coffre-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 36px 20px 64px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.coffre-header { text-align: center; margin-bottom: 32px; }
+
+.coffre-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.4rem;
+  color: #6d4c41;
+  margin-bottom: 8px;
+}
+
+.coffre-subtitle { color: #666; font-size: 1rem; margin-bottom: 16px; }
+
+.coffre-badge {
+  display: inline-block;
+  background: linear-gradient(135deg,#a1887f,#6d4c41);
+  color: #fff; padding: 9px 22px; border-radius: 24px;
+  font-size: 1rem; font-weight: 600;
+  box-shadow: 0 4px 14px rgba(109,76,65,.35);
+}
+
+/* Login prompt */
+.coffre-login-prompt {
+  text-align: center;
+  background: linear-gradient(135deg,#efebe9,#d7ccc8);
+  border: 2px dashed #a1887f; border-radius: 18px;
+  padding: 36px 24px; margin-bottom: 28px;
+}
+.coffre-lock-icon { font-size: 3rem; margin-bottom: 12px; }
+.coffre-login-prompt h3 { color: #6d4c41; font-size: 1.35rem; margin-bottom: 8px; }
+.coffre-login-prompt p  { color: #555; margin-bottom: 22px; }
+.coffre-login-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.coffre-btn {
+  padding: 11px 26px; border-radius: 10px; font-weight: 700;
+  text-decoration: none; font-size: .95rem;
+  transition: transform .2s, box-shadow .2s; display: inline-block;
+}
+.coffre-btn:hover { transform: translateY(-2px); }
+.coffre-btn-primary  { background: #6d4c41; color: #fff; box-shadow: 0 4px 14px rgba(109,76,65,.3); }
+.coffre-btn-secondary { background: #fff; color: #6d4c41; border: 2px solid #6d4c41; }
+
+/* Game */
+.coffre-game { text-align: center; margin-bottom: 36px; }
+.coffre-pick-label { font-size: 1.05rem; color: #444; margin-bottom: 24px; }
+.coffre-pick-label strong { color: #6d4c41; }
+
+.coffre-chests {
+  display: flex; gap: 18px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 28px;
+}
+
+.coffre-chest {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  cursor: pointer;
+  transition: transform .25s, filter .25s;
+}
+.coffre-chest:hover { transform: translateY(-8px) scale(1.06); }
+
+.coffre-chest-img {
+  width: 90px; height: 90px;
+  background: linear-gradient(135deg,#d7ccc8,#a1887f);
+  border-radius: 16px;
+  border: 2px solid #8d6e63;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+  box-shadow: 0 6px 18px rgba(109,76,65,.3);
+  transition: background .3s, box-shadow .3s;
+  position: relative; overflow: hidden;
+}
+.coffre-chest-img::before {
+  content: '';
+  position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+  background: linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+  transform: skewX(-15deg);
+  transition: left .4s ease;
+}
+.coffre-chest:hover .coffre-chest-img::before { left: 120%; }
+
+.coffre-chest-label {
+  font-size: .8rem; font-weight: 600; color: #8d6e63;
+}
+
+/* States */
+.coffre-chest-faded   { opacity: .35; filter: grayscale(.6); pointer-events: none; }
+.coffre-chest-selected .coffre-chest-img {
+  border-color: #ffd54f;
+  box-shadow: 0 0 24px rgba(255,213,79,.7);
+  background: linear-gradient(135deg,#fff9c4,#ffd54f);
+}
+.coffre-chest-revealed { cursor: default; }
+.coffre-chest-revealed:hover { transform: none; }
+
+.coffre-chest-revealed .coffre-chest-img {
+  background: linear-gradient(135deg,#efebe9,#d7ccc8);
+  border-color: #a1887f;
+}
+.coffre-chest-winner .coffre-chest-img {
+  background: linear-gradient(135deg,#fff9c4,#ffd54f) !important;
+  border-color: #f9a825 !important;
+  box-shadow: 0 0 32px rgba(249,168,37,.8) !important;
+  animation: coffreWin 1s ease-in-out 3 !important;
+}
+@keyframes coffreWin { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+
+.coffre-chest-open {
+  font-size: 1.2rem; font-weight: 700; color: #4caf50;
+  text-shadow: 0 1px 4px rgba(0,0,0,.25);
+}
+.coffre-chest-winner .coffre-chest-open { color: #f9a825; font-size: 1.4rem; }
+
+/* Result */
+.coffre-result {
+  margin-top: 20px; border-radius: 18px;
+  padding: 20px 28px; font-weight: 600; font-size: 1.05rem;
+  text-align: center;
+  animation: coffreResultPop .5s cubic-bezier(.175,.885,.32,1.275);
+}
+@keyframes coffreResultPop { from{opacity:0;transform:scale(.7)} to{opacity:1;transform:scale(1)} }
+.coffre-result.win     { background: linear-gradient(135deg,#ffeaa7,#fdcb6e); border: 2px solid #f9ca24; color: #5d3a00; }
+.coffre-result.jackpot { background: linear-gradient(135deg,#ffd54f,#f9a825); border: 2px solid #f9a825; color: #3a2500; box-shadow: 0 8px 32px rgba(249,168,37,.5); }
+.coffre-result.lose    { background: #efebe9; border: 2px solid #d7ccc8; color: #795548; }
+.coffre-result-emoji   { font-size: 2rem; display: block; margin-bottom: 6px; }
+
+/* Already played */
+.coffre-played-banner {
+  background: linear-gradient(135deg,#efebe9,#fafafa);
+  border: 2px solid #d7ccc8; border-radius: 18px;
+  padding: 28px; text-align: center; margin-bottom: 28px;
+}
+.coffre-played-icon { font-size: 3rem; margin-bottom: 10px; }
+.coffre-played-banner p { color: #444; margin: 5px 0; }
+.coffre-played-banner strong { color: #6d4c41; }
+.coffre-next-time { font-size: .88rem !important; color: #888 !important; margin-top: 12px !important; }
+
+/* Legend */
+.coffre-legend { text-align: center; margin-top: 8px; }
+.coffre-legend h3 { font-size: 1.1rem; color: #6d4c41; margin-bottom: 10px; }
+.coffre-legend-desc { color: #888; font-size: .88rem; margin-bottom: 14px; }
+.coffre-legend-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.coffre-legend-item {
+  background: #efebe9; border: 2px solid #d7ccc8; border-radius: 10px;
+  padding: 10px 18px; font-size: .9rem; font-weight: 600; color: #6d4c41;
+}
+.coffre-info { text-align: center; margin-top: 28px; color: #999; font-size: .88rem; }
+
+/* Dark mode */
+body.dark-mode .coffre-title              { color: #bcaaa4; }
+body.dark-mode .coffre-login-prompt       { background: linear-gradient(135deg,#1a1210,#2d1f18); border-color: #a1887f; }
+body.dark-mode .coffre-login-prompt h3    { color: #bcaaa4; }
+body.dark-mode .coffre-chest-img          { background: linear-gradient(135deg,#2d1f18,#3d2e25); border-color: #5d4037; }
+body.dark-mode .coffre-chest-label        { color: #a1887f; }
+body.dark-mode .coffre-played-banner      { background: linear-gradient(135deg,#1a1210,#2a2a2a); border-color: #5d4037; }
+body.dark-mode .coffre-played-banner p    { color: #ccc; }
+body.dark-mode .coffre-legend-item        { background: #2d1f18; border-color: #5d4037; color: #bcaaa4; }
+body.dark-mode .coffre-result.lose        { background: #2a2a2a; border-color: #444; color: #bbb; }
+
+@media (max-width: 520px) {
+  .coffre-title      { font-size: 1.9rem; }
+  .coffre-chest-img  { width: 70px; height: 70px; font-size: 2.2rem; }
+  .coffre-chests     { gap: 12px; }
+}

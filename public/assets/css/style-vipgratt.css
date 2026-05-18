@@ -1,0 +1,178 @@
+/* ── Grattage VIP ── */
+.vip-main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 36px 20px 64px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.vip-header { text-align: center; margin-bottom: 32px; }
+.vip-crown-deco { font-size: 3rem; margin-bottom: 4px; animation: crownFloat 3s ease-in-out infinite; }
+@keyframes crownFloat { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-8px) rotate(5deg)} }
+
+.vip-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.4rem;
+  background: linear-gradient(135deg, #b8860b, #ffd700, #b8860b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.vip-subtitle { color: #777; font-size: 1rem; margin-bottom: 16px; }
+
+.vip-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #b8860b, #ffd700);
+  color: #3a2500;
+  padding: 9px 22px; border-radius: 24px;
+  font-size: 1rem; font-weight: 700;
+  box-shadow: 0 4px 18px rgba(255,215,0,.45);
+  border: 1px solid rgba(255,255,255,.3);
+}
+
+/* Login prompt */
+.vip-login-prompt {
+  text-align: center;
+  background: linear-gradient(135deg, #1a1200, #2d2200);
+  border: 2px solid #b8860b; border-radius: 18px;
+  padding: 36px 24px; margin-bottom: 28px;
+}
+.vip-lock { font-size: 3rem; margin-bottom: 12px; }
+.vip-login-prompt h3 { color: #ffd700; font-size: 1.35rem; margin-bottom: 8px; }
+.vip-login-prompt p  { color: #bbb; margin-bottom: 22px; }
+.vip-login-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.vip-btn {
+  padding: 11px 26px; border-radius: 10px; font-weight: 700;
+  text-decoration: none; font-size: .95rem;
+  transition: transform .2s, box-shadow .2s; display: inline-block;
+}
+.vip-btn:hover { transform: translateY(-2px); }
+.vip-btn-primary  { background: linear-gradient(135deg,#b8860b,#ffd700); color: #3a2500; box-shadow: 0 4px 14px rgba(255,215,0,.4); }
+.vip-btn-secondary { background: transparent; color: #ffd700; border: 2px solid #b8860b; }
+
+/* Game */
+.vip-game { text-align: center; margin-bottom: 36px; }
+
+.vip-ticket {
+  max-width: 480px; margin: 0 auto 28px;
+  background: linear-gradient(160deg, #1a1200 0%, #2d2200 50%, #1a1200 100%);
+  border: 2px solid #b8860b;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,215,0,.2);
+}
+
+.vip-ticket-header, .vip-ticket-footer {
+  color: #ffd700; font-size: .9rem; font-weight: 700;
+  letter-spacing: 3px; text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+.vip-ticket-header { margin-bottom: 20px; }
+.vip-ticket-footer { margin-top: 20px; color: #b8860b; font-size: .78rem; }
+
+.vip-zones {
+  display: flex; gap: 16px; justify-content: center;
+}
+
+.vip-zone {
+  position: relative; width: 120px; height: 120px;
+  border-radius: 14px;
+  border: 2px solid #b8860b;
+  background: linear-gradient(135deg, #2d2200, #3d3000);
+  overflow: hidden;
+}
+
+.vip-zone-cover {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #4a3800, #6b5200);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity .4s ease, transform .4s ease;
+  z-index: 2;
+}
+.vip-zone-cover.vip-cover-removed { opacity: 0; transform: scale(1.1); pointer-events: none; }
+.vip-zone-hint { color: #ffd700; font-size: .78rem; font-weight: 700; letter-spacing: 1px; }
+
+.vip-zone-symbol {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.2rem;
+  z-index: 1;
+}
+
+.vip-zone.vip-zone-win {
+  border-color: #ffd700;
+  box-shadow: 0 0 20px rgba(255,215,0,.6);
+  animation: vipWinPulse 1s ease-in-out 3;
+}
+@keyframes vipWinPulse { 0%,100%{box-shadow:0 0 20px rgba(255,215,0,.6)} 50%{box-shadow:0 0 40px rgba(255,215,0,1)} }
+
+/* Play button */
+.vip-play-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, #b8860b, #ffd700);
+  color: #3a2500; border: none; border-radius: 50px;
+  padding: 16px 44px; font-size: 1.1rem; font-weight: 700;
+  font-family: 'Poppins', sans-serif; cursor: pointer;
+  box-shadow: 0 6px 22px rgba(255,215,0,.45);
+  transition: transform .2s, box-shadow .2s;
+}
+.vip-play-btn:hover:not(:disabled) { transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 32px rgba(255,215,0,.6); }
+.vip-play-btn:disabled { opacity: .6; cursor: not-allowed; background: #555; color: #888; box-shadow: none; }
+.vip-btn-icon { font-size: 1.4rem; animation: vipCrownSpin 2s linear infinite; display: inline-block; }
+@keyframes vipCrownSpin { 0%,100%{transform:rotate(-10deg)} 50%{transform:rotate(10deg)} }
+.vip-play-btn:disabled .vip-btn-icon { animation: none; }
+
+/* Result */
+.vip-result {
+  margin-top: 20px; border-radius: 18px;
+  padding: 20px 28px; font-weight: 600; font-size: 1.05rem;
+  text-align: center;
+  animation: vipResultPop .5s cubic-bezier(.175,.885,.32,1.275);
+}
+@keyframes vipResultPop { from{opacity:0;transform:scale(.7)} to{opacity:1;transform:scale(1)} }
+.vip-result.win     { background: linear-gradient(135deg,#2d2200,#5a4400); border: 2px solid #ffd700; color: #ffd700; }
+.vip-result.jackpot { background: linear-gradient(135deg,#ffd700,#b8860b); border: 2px solid #ffd700; color: #3a2500; box-shadow: 0 8px 32px rgba(255,215,0,.6); animation: vipJackpotBurst .6s cubic-bezier(.175,.885,.32,1.275); }
+@keyframes vipJackpotBurst { 0%{opacity:0;transform:scale(.4)} 65%{transform:scale(1.1)} 100%{opacity:1;transform:scale(1)} }
+.vip-result.lose    { background: #1a1a1a; border: 2px solid #333; color: #888; }
+.vip-result-emoji   { font-size: 2rem; display: block; margin-bottom: 6px; }
+
+/* Already played */
+.vip-played-banner {
+  background: linear-gradient(135deg,#1a1200,#2d2200);
+  border: 2px solid #b8860b; border-radius: 18px;
+  padding: 28px; text-align: center; margin-bottom: 28px;
+}
+.vip-played-icon { font-size: 3rem; margin-bottom: 10px; }
+.vip-played-banner p { color: #ccc; margin: 5px 0; }
+.vip-played-banner strong { color: #ffd700; }
+.vip-next-time { font-size: .88rem !important; color: #888 !important; margin-top: 12px !important; }
+
+/* Legend */
+.vip-legend { text-align: center; margin-top: 8px; }
+.vip-legend h3 { font-size: 1.1rem; color: #2E3A59; margin-bottom: 14px; }
+.vip-legend-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.vip-legend-item {
+  background: linear-gradient(135deg,#1a1200,#2d2200);
+  border: 2px solid #b8860b; border-radius: 10px;
+  padding: 10px 16px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  font-size: 1.5rem;
+  min-width: 80px;
+}
+.vip-legend-item strong { color: #ffd700; font-size: .85rem; }
+.vip-info { text-align: center; margin-top: 28px; color: #999; font-size: .88rem; }
+
+/* Dark mode adjustments (already dark by default) */
+body.dark-mode .vip-legend h3 { color: #ffd700; }
+body.dark-mode .vip-info      { color: #666; }
+
+@media (max-width: 480px) {
+  .vip-title   { font-size: 1.9rem; }
+  .vip-zones   { gap: 10px; }
+  .vip-zone    { width: 90px; height: 90px; }
+  .vip-zone-symbol { font-size: 2.4rem; }
+}

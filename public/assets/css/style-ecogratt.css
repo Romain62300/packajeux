@@ -1,0 +1,173 @@
+/* ── Grattage Écolo ── */
+.eco-main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 36px 20px 64px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.eco-header { text-align: center; margin-bottom: 32px; }
+
+.eco-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.4rem;
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+.eco-subtitle { color: #666; font-size: 1rem; margin-bottom: 16px; }
+
+.eco-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #66bb6a, #2e7d32);
+  color: #fff;
+  padding: 9px 22px; border-radius: 24px;
+  font-size: 1rem; font-weight: 600;
+  box-shadow: 0 4px 14px rgba(46,125,50,.35);
+}
+
+/* Login prompt */
+.eco-login-prompt {
+  text-align: center;
+  background: linear-gradient(135deg,#e8f5e9,#c8e6c9);
+  border: 2px dashed #66bb6a; border-radius: 18px;
+  padding: 36px 24px; margin-bottom: 28px;
+}
+.eco-lock { font-size: 3rem; margin-bottom: 12px; }
+.eco-login-prompt h3 { color: #2e7d32; font-size: 1.35rem; margin-bottom: 8px; }
+.eco-login-prompt p  { color: #555; margin-bottom: 22px; }
+.eco-login-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.eco-btn {
+  padding: 11px 26px; border-radius: 10px; font-weight: 700;
+  text-decoration: none; font-size: .95rem;
+  transition: transform .2s, box-shadow .2s; display: inline-block;
+}
+.eco-btn:hover { transform: translateY(-2px); }
+.eco-btn-primary  { background: #2e7d32; color: #fff; box-shadow: 0 4px 14px rgba(46,125,50,.3); }
+.eco-btn-secondary { background: #fff; color: #2e7d32; border: 2px solid #2e7d32; }
+
+/* Game */
+.eco-game { position: relative; text-align: center; margin-bottom: 36px; overflow: hidden; padding: 20px 0; }
+
+/* Decorative leaves */
+.eco-leaf-deco { position: absolute; font-size: 3rem; opacity: .15; pointer-events: none; }
+.eco-leaf-1 { top: 0; left: 10px; transform: rotate(-30deg); animation: leafSway 4s ease-in-out infinite; }
+.eco-leaf-2 { top: 0; right: 10px; transform: rotate(20deg); animation: leafSway 4s ease-in-out infinite reverse; }
+@keyframes leafSway { 0%,100%{transform:rotate(-30deg)} 50%{transform:rotate(-10deg)} }
+.eco-leaf-2 { animation-name: leafSway2; }
+@keyframes leafSway2 { 0%,100%{transform:rotate(20deg)} 50%{transform:rotate(35deg)} }
+
+.eco-grid {
+  display: flex; gap: 18px; justify-content: center;
+  margin: 0 auto 28px;
+}
+
+.eco-cell {
+  perspective: 600px;
+  width: 110px; height: 110px;
+}
+
+.eco-cell-inner {
+  position: relative; width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+}
+.eco-cell.eco-flipped .eco-cell-inner { transform: rotateY(180deg); }
+
+.eco-cell-front,
+.eco-cell-back {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 16px; backface-visibility: hidden; font-size: 2.4rem;
+}
+.eco-cell-front {
+  background: linear-gradient(135deg, #a5d6a7, #66bb6a);
+  border: 2px solid #4caf50;
+  box-shadow: 0 4px 14px rgba(76,175,80,.3);
+  cursor: pointer;
+}
+.eco-cell-back {
+  background: #fff;
+  transform: rotateY(180deg);
+  border: 2px solid #a5d6a7;
+  box-shadow: 0 4px 14px rgba(0,0,0,.1);
+}
+.eco-cell.eco-cell-win .eco-cell-back {
+  background: linear-gradient(135deg,#e8f5e9,#c8e6c9);
+  border-color: #66bb6a;
+  box-shadow: 0 0 18px rgba(76,175,80,.5);
+  animation: ecoWinPulse .8s ease-in-out 3;
+}
+@keyframes ecoWinPulse { 0%,100%{box-shadow:0 0 18px rgba(76,175,80,.5)} 50%{box-shadow:0 0 32px rgba(76,175,80,1)} }
+
+/* Play button */
+.eco-play-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, #66bb6a, #2e7d32);
+  color: #fff; border: none; border-radius: 50px;
+  padding: 16px 44px; font-size: 1.1rem; font-weight: 700;
+  font-family: 'Poppins', sans-serif; cursor: pointer;
+  box-shadow: 0 6px 22px rgba(46,125,50,.4);
+  transition: transform .2s, box-shadow .2s;
+}
+.eco-play-btn:hover:not(:disabled) { transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 32px rgba(46,125,50,.55); }
+.eco-play-btn:disabled { opacity: .6; cursor: not-allowed; background: #ccc; box-shadow: none; }
+.eco-btn-icon { font-size: 1.4rem; animation: ecoSpin 4s linear infinite; display: inline-block; }
+@keyframes ecoSpin { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+.eco-play-btn:disabled .eco-btn-icon { animation: none; }
+
+/* Result */
+.eco-result {
+  margin-top: 20px; border-radius: 18px;
+  padding: 20px 28px; font-weight: 600; font-size: 1.05rem;
+  text-align: center;
+  animation: ecoResultPop .5s cubic-bezier(.175,.885,.32,1.275);
+}
+@keyframes ecoResultPop { from{opacity:0;transform:scale(.7)} to{opacity:1;transform:scale(1)} }
+.eco-result.win     { background: linear-gradient(135deg,#c8e6c9,#a5d6a7); border: 2px solid #66bb6a; color: #1b5e20; }
+.eco-result.jackpot { background: linear-gradient(135deg,#76ff03,#64dd17); border: 2px solid #2e7d32; color: #1b5e20; box-shadow: 0 8px 32px rgba(76,175,80,.5); }
+.eco-result.lose    { background: #f1f8e9; border: 2px solid #c5e1a5; color: #558b2f; }
+.eco-result-emoji   { font-size: 2rem; display: block; margin-bottom: 6px; }
+
+/* Already played */
+.eco-played-banner {
+  background: linear-gradient(135deg,#e8f5e9,#f1f8e9);
+  border: 2px solid #a5d6a7; border-radius: 18px;
+  padding: 28px; text-align: center; margin-bottom: 28px;
+}
+.eco-played-icon { font-size: 3rem; margin-bottom: 10px; }
+.eco-played-banner p { color: #444; margin: 5px 0; }
+.eco-played-banner strong { color: #2e7d32; }
+.eco-next-time { font-size: .88rem !important; color: #888 !important; margin-top: 12px !important; }
+
+/* Legend */
+.eco-legend { text-align: center; margin-top: 8px; }
+.eco-legend h3 { font-size: 1.1rem; color: #2e7d32; margin-bottom: 14px; }
+.eco-legend-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.eco-legend-item {
+  background: #e8f5e9; border: 2px solid #a5d6a7; border-radius: 10px;
+  padding: 10px 18px; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  font-size: .9rem;
+}
+.eco-legend-item span { color: #555; }
+.eco-legend-item strong { color: #2e7d32; }
+.eco-info { text-align: center; margin-top: 28px; color: #999; font-size: .88rem; }
+
+/* Dark mode */
+body.dark-mode .eco-title               { color: #a5d6a7; }
+body.dark-mode .eco-login-prompt        { background: linear-gradient(135deg,#0d1f0e,#142815); border-color: #4caf50; }
+body.dark-mode .eco-login-prompt h3     { color: #a5d6a7; }
+body.dark-mode .eco-cell-front          { background: linear-gradient(135deg,#1b3a1c,#2e5a30); border-color: #4caf50; }
+body.dark-mode .eco-cell-back           { background: #1e1e2e; border-color: #4caf50; }
+body.dark-mode .eco-played-banner       { background: linear-gradient(135deg,#0d1f0e,#142815); border-color: #4caf50; }
+body.dark-mode .eco-played-banner p     { color: #ccc; }
+body.dark-mode .eco-legend-item         { background: #0d1f0e; border-color: #4caf50; }
+body.dark-mode .eco-legend-item span    { color: #aaa; }
+body.dark-mode .eco-result.lose         { background: #1a2e1a; border-color: #4caf50; color: #a5d6a7; }
+
+@media (max-width: 480px) {
+  .eco-title { font-size: 1.9rem; }
+  .eco-grid  { gap: 12px; }
+  .eco-cell  { width: 80px; height: 80px; }
+  .eco-cell-front, .eco-cell-back { font-size: 1.8rem; }
+}
