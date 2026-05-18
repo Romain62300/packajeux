@@ -96,9 +96,21 @@
   background: linear-gradient(135deg,#e8f5e9,#c8e6c9);
   border-color: #66bb6a;
   box-shadow: 0 0 18px rgba(76,175,80,.5);
-  animation: ecoWinPulse .8s ease-in-out 3;
+  animation: ecoWinPulse .7s ease-in-out 4;
 }
-@keyframes ecoWinPulse { 0%,100%{box-shadow:0 0 18px rgba(76,175,80,.5)} 50%{box-shadow:0 0 32px rgba(76,175,80,1)} }
+@keyframes ecoWinPulse {
+  0%,100% { box-shadow: 0 0 18px rgba(76,175,80,.5); transform: rotateY(180deg) scale(1); }
+  50%     { box-shadow: 0 0 36px rgba(76,175,80,1);   transform: rotateY(180deg) scale(1.1); }
+}
+
+.eco-back-win-pop {
+  animation: ecoSymbolPop .5s cubic-bezier(.175,.885,.32,1.275) forwards !important;
+}
+@keyframes ecoSymbolPop {
+  0%   { transform: scale(0.5) rotate(-15deg); }
+  70%  { transform: scale(1.2) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); }
+}
 
 /* Play button */
 .eco-play-btn {

@@ -43,11 +43,27 @@
       setTimeout(() => {
         const cover  = zone.querySelector('.vip-zone-cover');
         const symbol = zone.querySelector('.vip-zone-symbol');
+
         symbol.textContent = symbols[i];
         cover.classList.add('vip-cover-removed');
-        if (isWin) zone.classList.add('vip-zone-win');
-        if (i === zoneEls.length - 1) setTimeout(onDone, 500);
-      }, i * 300);
+
+        // Pop du symbole une fois la cover disparue
+        setTimeout(() => {
+          symbol.classList.add('vip-symbol-pop');
+          if (isWin) zone.classList.add('vip-zone-win');
+        }, 380);
+
+        if (i === zoneEls.length - 1) {
+          setTimeout(() => {
+            // Shimmer sur le ticket entier en cas de victoire
+            if (isWin) {
+              const ticket = document.querySelector('.vip-ticket');
+              if (ticket) ticket.classList.add('vip-ticket-win');
+            }
+            onDone();
+          }, 750);
+        }
+      }, i * 380);
     });
   }
 

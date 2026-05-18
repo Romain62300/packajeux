@@ -105,3 +105,60 @@ body.dark-mode #restart:hover {
 }
 
 body.dark-mode main div { color: #ddd; }
+
+/* ── Class-based selectors (Sprint 3) ── */
+
+.devine-score {
+  display: none;
+  margin: 0 auto 18px;
+  background: linear-gradient(135deg,#e8f0fe,#c5cae9);
+  border: 2px solid #5c6bc0; border-radius: 12px;
+  padding: 10px 22px; font-size: .95rem; color: #283593;
+  max-width: 300px; text-align: center;
+  animation: devineScorePop .4s cubic-bezier(.175,.885,.32,1.275);
+}
+@keyframes devineScorePop { from{opacity:0;transform:scale(.85)} to{opacity:1;transform:scale(1)} }
+#devineBest { color: #1565c0; font-size: 1.1rem; }
+
+.devine-result-msg {
+  text-align: center; font-weight: bold;
+  font-size: 1.1rem; margin-bottom: 18px;
+}
+
+.devine-replay-form { text-align: center; }
+
+.devine-form {
+  margin: 20px auto;
+  max-width: 300px;
+}
+
+.devine-input {
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.devine-btn {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.devine-feedback {
+  text-align: center; font-weight: bold;
+  font-size: 1.05rem; margin: 12px 0;
+}
+
+.devine-attempts-count {
+  text-align: center; color: #666; font-size: .95rem; margin-top: 8px;
+}
+
+/* Dark mode additions */
+body.dark-mode .devine-score {
+  background: linear-gradient(135deg,#1a1f3a,#252a4a);
+  border-color: #5c6bc0; color: #9fa8da;
+}
+body.dark-mode #devineBest { color: #ffd54f; }
+body.dark-mode .devine-feedback  { color: #e0e0e0; }
+body.dark-mode .devine-attempts-count { color: #aaa; }

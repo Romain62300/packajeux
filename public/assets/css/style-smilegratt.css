@@ -71,7 +71,7 @@
   position: relative;
   width: 100%; height: 100%;
   transform-style: preserve-3d;
-  transition: transform .55s cubic-bezier(.4,0,.2,1);
+  transition: transform .55s cubic-bezier(.175,.885,.32,1.275);
 }
 
 .smile-cell.smile-flipped .smile-cell-inner { transform: rotateY(180deg); }
@@ -156,6 +156,18 @@
 .smile-legend-item span { color: #666; }
 .smile-legend-item strong { color: #f9a825; font-size: 1rem; }
 .smile-info { text-align: center; margin-top: 28px; color: #999; font-size: .88rem; }
+
+/* ── Cellule gagnante ── */
+.smile-cell.smile-cell-win .smile-cell-back {
+  background: linear-gradient(135deg, #fffde7, #ffd54f);
+  border-color: #f9a825;
+  box-shadow: 0 0 20px rgba(249,168,37,.65);
+  animation: smileCellGlow .7s ease-in-out 4;
+}
+@keyframes smileCellGlow {
+  0%,100% { box-shadow: 0 0 20px rgba(249,168,37,.5); transform: rotateY(180deg) scale(1); }
+  50%      { box-shadow: 0 0 38px rgba(249,168,37,1);  transform: rotateY(180deg) scale(1.06); }
+}
 
 /* Dark mode */
 body.dark-mode .smile-title         { color: #ffd54f; }

@@ -29,13 +29,13 @@
 
     if (data.error) { showResult(0, data.message, true); return; }
 
-    // Find the winning symbol
+    // Symbole gagnant : le plus fréquent
     const counts = {};
     data.grid.forEach(s => counts[s] = (counts[s] || 0) + 1);
     const maxCount  = Math.max(...Object.values(counts));
-    const winSymbol = Object.keys(counts).find(k => counts[k] === maxCount);
+    const winSymbol = data.gain > 0 ? Object.keys(counts).find(k => counts[k] === maxCount) : null;
 
-    revealGrid(data.grid, data.gain > 0 ? winSymbol : null, () => {
+    revealGrid(data.grid, winSymbol, () => {
       if (jetonEl && data.jetons !== undefined) jetonEl.textContent = data.jetons;
       showResult(data.gain);
     });
@@ -48,9 +48,17 @@
         const back = cell.querySelector('.eco-cell-back');
         back.textContent = symbols[i];
         cell.classList.add('eco-flipped');
-        if (winSym && symbols[i] === winSym) cell.classList.add('eco-cell-win');
-        if (i === cells.length - 1) setTimeout(onDone, 400);
-      }, i * 180);
+
+        // Highlight gagnant + scale après retournement
+        if (winSym && symbols[i] === winSym) {
+          setTimeout(() => {
+            cell.classList.add('eco-cell-win');
+            back.classList.add('eco-back-win-pop');
+          }, 380);
+        }
+
+        if (i === cells.length - 1) setTimeout(onDone, 550);
+      }, i * 200);
     });
   }
 

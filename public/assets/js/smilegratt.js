@@ -2,10 +2,10 @@
   'use strict';
   if (!SMILE_CONFIG.isLoggedIn || SMILE_CONFIG.alreadyPlayed) return;
 
-  const grid     = document.getElementById('smileGrid');
-  const playBtn  = document.getElementById('smilePlayBtn');
-  const result   = document.getElementById('smileResult');
-  const jetonEl  = document.getElementById('jetonCount');
+  const grid    = document.getElementById('smileGrid');
+  const playBtn = document.getElementById('smilePlayBtn');
+  const result  = document.getElementById('smileResult');
+  const jetonEl = document.getElementById('jetonCount');
   if (!grid || !playBtn) return;
 
   let revealed = false;
@@ -30,27 +30,37 @@
       return;
     }
 
-    if (data.error) {
-      showResult(0, data.message, 'lose');
-      return;
-    }
+    if (data.error) { showResult(0, data.message, 'lose'); return; }
 
     revealed = true;
-    revealGrid(data.grid, () => {
+    revealGrid(data.grid, data.gain, () => {
       if (jetonEl && data.jetons !== undefined) jetonEl.textContent = data.jetons;
       showResult(data.gain);
     });
   });
 
-  function revealGrid(symbols, onDone) {
+  function revealGrid(symbols, gain, onDone) {
     const cells = grid.querySelectorAll('.smile-cell');
+
+    // Détection du symbole gagnant (le plus fréquent, si gain > 0)
+    const counts = {};
+    symbols.forEach(s => counts[s] = (counts[s] || 0) + 1);
+    const maxCount = Math.max(...Object.values(counts));
+    const winSym   = gain > 0 && maxCount >= 2 ? Object.keys(counts).find(k => counts[k] === maxCount) : null;
+
     cells.forEach((cell, i) => {
       setTimeout(() => {
         const back = cell.querySelector('.smile-cell-back');
         back.textContent = symbols[i];
         cell.classList.add('smile-flipped');
-        if (i === cells.length - 1) setTimeout(onDone, 400);
-      }, i * 120);
+
+        // Highlight des cellules gagnantes après le retournement
+        if (winSym && symbols[i] === winSym) {
+          setTimeout(() => cell.classList.add('smile-cell-win'), 350);
+        }
+
+        if (i === cells.length - 1) setTimeout(onDone, 550);
+      }, i * 130);
     });
   }
 

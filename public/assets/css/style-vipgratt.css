@@ -106,9 +106,28 @@
 .vip-zone.vip-zone-win {
   border-color: #ffd700;
   box-shadow: 0 0 20px rgba(255,215,0,.6);
-  animation: vipWinPulse 1s ease-in-out 3;
+  animation: vipWinPulse .8s ease-in-out 4;
 }
-@keyframes vipWinPulse { 0%,100%{box-shadow:0 0 20px rgba(255,215,0,.6)} 50%{box-shadow:0 0 40px rgba(255,215,0,1)} }
+@keyframes vipWinPulse { 0%,100%{box-shadow:0 0 20px rgba(255,215,0,.6)} 50%{box-shadow:0 0 44px rgba(255,215,0,1)} }
+
+/* Symbole pop après révélation de la cover */
+.vip-zone-symbol.vip-symbol-pop {
+  animation: vipSymbolPop .55s cubic-bezier(.175,.885,.32,1.275) forwards;
+}
+@keyframes vipSymbolPop {
+  0%   { opacity:0; transform: scale(0) rotate(-25deg); }
+  65%  { transform: scale(1.35) rotate(8deg); }
+  100% { opacity:1; transform: scale(1) rotate(0); }
+}
+
+/* Shimmer doré sur tout le ticket en cas de victoire */
+.vip-ticket.vip-ticket-win {
+  animation: vipTicketShimmer 1.8s ease-in-out infinite;
+}
+@keyframes vipTicketShimmer {
+  0%,100% { box-shadow: 0 0 0 2px #ffd700, 0 8px 32px rgba(255,215,0,.35), inset 0 1px 0 rgba(255,215,0,.15); }
+  50%     { box-shadow: 0 0 0 3px #ffd700, 0 14px 52px rgba(255,215,0,.7),  inset 0 1px 0 rgba(255,215,0,.4); }
+}
 
 /* Play button */
 .vip-play-btn {

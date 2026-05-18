@@ -1,13 +1,11 @@
 <?php
 include_once(__DIR__ . "/../../includes/header.php");
 
-// Démarrage d'une partie
 if (!isset($_SESSION['nombre_a_deviner'])) {
     $_SESSION['nombre_a_deviner'] = rand(1, 100);
     $_SESSION['tentatives'] = 0;
 }
 
-// Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'])) {
     $choix = (int) $_POST['nombre'];
     $_SESSION['tentatives']++;
@@ -31,31 +29,46 @@ if (isset($_POST['rejouer'])) {
     exit();
 }
 
-$message = $_SESSION['message'] ?? '';
+$message  = $_SESSION['message'] ?? '';
 unset($_SESSION['message']);
-?>
 
-<link rel="stylesheet" href="<?= $BASE_URL ?>/assets/css/style-devine.css">
+$gameWon  = !empty($_SESSION['partie_terminee']);
+$attempts = (int)($_SESSION['tentatives'] ?? 0);
+?>
 
 <main>
   <h2>Devine le nombre 🔢</h2>
   <p>Un nombre mystère entre <strong>1 et 100</strong> a été choisi… Saurez-vous le trouver ?</p>
 
-  <?php if (!empty($_SESSION['partie_terminee'])): ?>
-  <div style="text-align:center; font-weight:bold;"><?= $message ?></div>
-  <form method="post" style="text-align:center;">
-    <button name="rejouer" class="btn">🔁 Rejouer</button>
+  <div id="devineScore" class="devine-score">
+    Meilleur score : <strong id="devineBest">—</strong> tentative(s)
+  </div>
+
+  <?php if ($gameWon): ?>
+  <div class="devine-result-msg"><?= $message ?></div>
+  <form method="post" class="devine-replay-form">
+    <button name="rejouer" class="devine-btn">🔁 Rejouer</button>
   </form>
   <?php else: ?>
-  <form method="post" style="margin: 20px auto; max-width: 300px;">
-    <input type="number" name="nombre" min="1" max="100" required placeholder="Entrez votre nombre"
-      style="padding: 10px; width: 100%; border-radius: 6px; border: 1px solid #ccc;">
-    <button type="submit" class="btn" style="margin-top: 10px; width: 100%;">Deviner</button>
+  <form method="post" class="devine-form">
+    <input type="number" name="nombre" min="1" max="100" required
+           placeholder="Entrez votre nombre" class="devine-input">
+    <button type="submit" class="devine-btn">Deviner</button>
   </form>
   <?php if ($message): ?>
-  <div style="text-align:center; font-weight:bold;"><?= $message ?></div>
+  <div class="devine-feedback"><?= $message ?></div>
   <?php endif; ?>
+  <div class="devine-attempts-count">
+    Tentative<?= $attempts !== 1 ? 's' : '' ?> : <strong><?= $attempts ?></strong>
+  </div>
   <?php endif; ?>
 </main>
+
+<script>
+const DEVINE_CONFIG = {
+  won: <?= $gameWon ? 'true' : 'false' ?>,
+  attempts: <?= $attempts ?>
+};
+</script>
 
 <?php include_once(__DIR__ . "/../../includes/footer.php"); ?>

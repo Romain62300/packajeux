@@ -22,6 +22,8 @@
     } else if (selected.size < LOTO_CONFIG.pick) {
       selected.add(n);
       btn.classList.add('loto-num-selected');
+      btn.classList.add('loto-num-pulse');
+      setTimeout(() => btn.classList.remove('loto-num-pulse'), 400);
     }
 
     updateUI();
@@ -29,15 +31,23 @@
 
   function updateUI() {
     const arr = [...selected].sort((a, b) => a - b);
-    selEl.textContent  = arr.length ? arr.join(' — ') : '—';
-    playBtn.disabled   = arr.length !== LOTO_CONFIG.pick;
+    selEl.innerHTML = arr.length
+      ? arr.map(n => `<span class="loto-sel-pill">${n}</span>`).join('')
+      : '—';
+    playBtn.disabled = arr.length !== LOTO_CONFIG.pick;
+    if (arr.length === LOTO_CONFIG.pick) playBtn.classList.add('loto-play-btn--ready');
+    else playBtn.classList.remove('loto-play-btn--ready');
   }
 
   playBtn.addEventListener('click', async () => {
     if (selected.size !== LOTO_CONFIG.pick) return;
     playBtn.disabled  = true;
-    playBtn.innerHTML = '<span class="loto-btn-icon">⏳</span><span>Tirage en cours…</span>';
+    playBtn.classList.remove('loto-play-btn--ready');
+    playBtn.innerHTML = '<span class="loto-btn-icon loto-btn-spin">🎰</span><span>Tirage en cours…</span>';
     lotoGrid.style.pointerEvents = 'none';
+
+    // Suspense visuel sur la grille
+    lotoGrid.querySelectorAll('.loto-num-selected').forEach(b => b.classList.add('loto-num-suspense'));
 
     let data;
     try {
@@ -52,47 +62,78 @@
       playBtn.disabled  = false;
       playBtn.innerHTML = '<span class="loto-btn-icon">🎟️</span><span>Valider ma grille !</span>';
       lotoGrid.style.pointerEvents = '';
+      lotoGrid.querySelectorAll('.loto-num-selected').forEach(b => b.classList.remove('loto-num-suspense'));
       return;
     }
 
     if (data.error) { showResult(null, data.message, true); return; }
 
-    // Highlight drawn numbers
+    // Retire suspense, met les boules gagnantes en évidence sur la grille
     lotoGrid.querySelectorAll('.loto-num').forEach(btn => {
       const n = +btn.dataset.n;
+      btn.classList.remove('loto-num-suspense');
       if (data.drawn.includes(n) && selected.has(n)) btn.classList.add('loto-num-match');
       else if (data.drawn.includes(n))                btn.classList.add('loto-num-drawn');
     });
 
     if (jetonEl && data.jetons !== undefined) jetonEl.textContent = data.jetons;
 
-    // Show drawn numbers with animation
     showDrawn(data.drawn, () => showResult(data.gain, null, false, data.matches));
   });
 
+  // ── Affichage du tirage balle par balle ──────────────────────────────────
   function showDrawn(drawn, cb) {
+    result.innerHTML     = '';
+    result.style.display = 'block';
+
     const drawnDiv = document.createElement('div');
     drawnDiv.className = 'loto-drawn-row';
-    drawnDiv.innerHTML = '<span class="loto-drawn-label">Tirage système&nbsp;:</span>';
-    const wrap = document.createElement('span');
+
+    const label = document.createElement('span');
+    label.className   = 'loto-drawn-label';
+    label.textContent = 'Tirage système :';
+    drawnDiv.appendChild(label);
+
+    const wrap = document.createElement('div');
     wrap.className = 'loto-drawn-nums';
+    drawnDiv.appendChild(wrap);
+
+    // Compteur de correspondances en temps réel
+    const counter = document.createElement('div');
+    counter.className = 'loto-match-counter';
+    counter.innerHTML = 'Correspondances&nbsp;: <strong id="lotoMatchCount">0</strong>';
+    drawnDiv.appendChild(counter);
+
+    result.appendChild(drawnDiv);
+
+    let matchCount = 0;
+    const DELAY = 320;
+
     drawn.forEach((n, i) => {
       setTimeout(() => {
         const ball = document.createElement('span');
-        ball.className   = 'loto-ball' + (selected.has(n) ? ' loto-ball-match' : '');
+        const isMatch = selected.has(n);
+        ball.className   = 'loto-ball' + (isMatch ? ' loto-ball-match' : '');
         ball.textContent = n;
+        ball.style.animationDelay = '0ms';
         wrap.appendChild(ball);
-        if (i === drawn.length - 1) setTimeout(cb, 500);
-      }, i * 200);
+
+        if (isMatch) {
+          matchCount++;
+          const mc = document.getElementById('lotoMatchCount');
+          if (mc) {
+            mc.textContent = matchCount;
+            mc.classList.add('loto-count-bump');
+            setTimeout(() => mc.classList.remove('loto-count-bump'), 400);
+          }
+        }
+
+        if (i === drawn.length - 1) setTimeout(cb, 650);
+      }, 200 + i * DELAY);
     });
-    drawnDiv.appendChild(wrap);
-    result.innerHTML     = '';
-    result.style.display = 'block';
-    result.appendChild(drawnDiv);
   }
 
   function showResult(gain, msg, isError, matches) {
-    const existing = result.querySelector('.loto-drawn-row');
     const div = document.createElement('div');
     div.className = 'loto-result-msg';
 
@@ -104,15 +145,13 @@
       div.innerHTML  = `<span class="loto-result-emoji">🎉</span><strong>JACKPOT — 5/5 !</strong> Vous gagnez <strong>${gain} jetons</strong> !`;
     } else if (gain > 0) {
       div.className += ' win';
-      div.innerHTML  = `<span class="loto-result-emoji">🏆</span>${matches} bons numéros ! <strong>+${gain} jeton${gain > 1 ? 's' : ''}</strong> !`;
+      div.innerHTML  = `<span class="loto-result-emoji">🏆</span>${matches} bon${matches > 1 ? 's' : ''} numéro${matches > 1 ? 's' : ''} ! <strong>+${gain} jeton${gain > 1 ? 's' : ''}</strong> !`;
     } else {
       div.className += ' lose';
       div.innerHTML  = `<span class="loto-result-emoji">😔</span>0 ou 1 bon numéro… Réessayez demain !`;
     }
 
-    if (existing) result.appendChild(div);
-    else { result.innerHTML = ''; result.appendChild(div); result.style.display = 'block'; }
-
+    result.appendChild(div);
     playBtn.style.display = 'none';
   }
 })();

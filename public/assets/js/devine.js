@@ -1,44 +1,29 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const secretNumber = Math.floor(Math.random() * 100) + 1;
-  let attempts = 0;
+(function () {
+  'use strict';
+  const LS_KEY = 'devine_best';
 
-  const guessInput = document.getElementById("guess");
-  const submitBtn = document.getElementById("submitGuess");
-  const feedback = document.getElementById("feedback");
-  const attemptsText = document.getElementById("attempts");
-  const restartBtn = document.getElementById("restart");
-
-  function handleGuess() {
-    const userGuess = parseInt(guessInput.value);
-    if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-      feedback.textContent = "⛔ Entrez un nombre entre 1 et 100.";
-      return;
-    }
-
-    attempts++;
-    if (userGuess < secretNumber) {
-      feedback.textContent = "🔺 Trop bas !";
-    } else if (userGuess > secretNumber) {
-      feedback.textContent = "🔻 Trop haut !";
-    } else {
-      feedback.innerHTML = `🎉 Bravo ! Le nombre était <strong>${secretNumber}</strong>.`;
-      attemptsText.innerHTML = `✅ Trouvé en <strong>${attempts}</strong> tentative(s).`;
-      submitBtn.disabled = true;
-      guessInput.disabled = true;
-      restartBtn.style.display = "inline-block";
-    }
-
-    guessInput.value = "";
-    guessInput.focus();
+  function getBest() {
+    const v = parseInt(localStorage.getItem(LS_KEY), 10);
+    return isNaN(v) ? null : v;
   }
 
-  submitBtn.addEventListener("click", handleGuess);
+  // Update best score if game just won this page load
+  if (typeof DEVINE_CONFIG !== 'undefined' && DEVINE_CONFIG.won && DEVINE_CONFIG.attempts > 0) {
+    const best = getBest();
+    if (best === null || DEVINE_CONFIG.attempts < best) {
+      localStorage.setItem(LS_KEY, DEVINE_CONFIG.attempts);
+    }
+  }
 
-  guessInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") handleGuess();
+  // Display best score
+  document.addEventListener('DOMContentLoaded', function () {
+    const el   = document.getElementById('devineBest');
+    const wrap = document.getElementById('devineScore');
+    if (!el || !wrap) return;
+    const best = getBest();
+    if (best !== null) {
+      el.textContent    = best;
+      wrap.style.display = 'block';
+    }
   });
-
-  restartBtn.addEventListener("click", () => {
-    location.reload();
-  });
-});
+})();
