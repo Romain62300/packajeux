@@ -3,6 +3,7 @@ session_start();
 require_once __DIR__ . '/../config/config.php';
 
 $message = "";
+$success = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $pseudo = trim($_POST["pseudo"]);
@@ -19,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt = $pdo->prepare("INSERT INTO utilisateurs (pseudo, email, mot_de_passe) VALUES (?, ?, ?)");
         try {
             $stmt->execute([$pseudo, $email, $hash]);
-            $message = "🎉 Compte créé avec succès ! <a href='login.php'>Se connecter</a>";
+            $success = true;
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) {
                 $message = "❌ Un compte existe déjà avec cet email.";
@@ -37,7 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <div class="auth-container">
     <h2 class="auth-title">Créer un compte</h2>
 
-    <?php if ($message): ?>
+    <?php if ($success): ?>
+    <p class="auth-error">🎉 Compte créé avec succès ! <a href="login.php">Se connecter</a></p>
+    <?php elseif ($message): ?>
     <p class="auth-error"><?= htmlspecialchars($message, ENT_QUOTES, 'UTF-8') ?></p>
     <?php endif; ?>
 
