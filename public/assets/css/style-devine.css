@@ -71,3 +71,37 @@ main div {
   position: absolute;
   left: -10000px;
 }
+
+/* ── Dark mode ── */
+body.dark-mode main {
+  background: #1e1e2e;
+  color: #eee;
+  box-shadow: 0 0 15px rgba(0,0,0,.4);
+  border: 1px solid #333;
+}
+
+body.dark-mode main h2 { color: #ffd54f; }
+
+body.dark-mode main p  { color: #bbb; }
+
+body.dark-mode main form input[type="number"] {
+  background: #2a2a3a;
+  border-color: #555;
+  color: #eee;
+}
+body.dark-mode main form input[type="number"]:focus { border-color: #ffd54f; }
+body.dark-mode main form input[type="number"]::placeholder { color: #666; }
+
+body.dark-mode main form button,
+body.dark-mode #submitGuess,
+body.dark-mode #restart {
+  background-color: #ffd54f;
+  color: #2E3A59;
+}
+body.dark-mode main form button:hover,
+body.dark-mode #submitGuess:hover,
+body.dark-mode #restart:hover {
+  background-color: #f9a825;
+}
+
+body.dark-mode main div { color: #ddd; }

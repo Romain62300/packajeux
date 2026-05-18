@@ -1,0 +1,146 @@
+/* ── Pierre Feuille Ciseau ── */
+.pfc-main {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 36px 20px 64px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.pfc-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  color: #2E3A59;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.pfc-game { text-align: center; }
+
+/* Boutons de choix */
+.pfc-choices {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.pfc-choice-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  background: #fff;
+  border: 2px solid #d0d7e8;
+  border-radius: 16px;
+  padding: 18px 22px;
+  font-size: 2.6rem;
+  cursor: pointer;
+  transition: transform .18s, border-color .18s, box-shadow .18s, background .18s;
+  min-width: 100px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.07);
+}
+.pfc-choice-btn span {
+  font-size: .82rem; font-weight: 600; color: #555;
+}
+.pfc-choice-btn:hover {
+  transform: translateY(-5px) scale(1.06);
+  border-color: #2E3A59;
+  box-shadow: 0 10px 28px rgba(46,58,89,.2);
+  background: #f3f6ff;
+}
+.pfc-choice-btn:active { transform: scale(.96); }
+
+/* Choix affiché */
+.pfc-chosen {
+  min-height: 40px; margin-bottom: 16px;
+  font-size: 1rem; color: #2E3A59; font-weight: 600;
+}
+.pfc-choice-badge {
+  display: inline-block;
+  background: #e8ecf5; color: #2E3A59;
+  padding: 6px 18px; border-radius: 20px;
+  font-weight: 700; font-size: 1rem;
+  animation: pfc-badge-in .25s ease;
+}
+@keyframes pfc-badge-in { from{opacity:0;transform:scale(.7)} to{opacity:1;transform:scale(1)} }
+
+/* Bouton résultat */
+.pfc-result-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #2E3A59, #4a5a85);
+  color: #fff; border: none;
+  padding: 14px 40px; border-radius: 50px;
+  font-size: 1.05rem; font-weight: 700;
+  font-family: 'Poppins', sans-serif; cursor: pointer;
+  box-shadow: 0 5px 18px rgba(46,58,89,.35);
+  transition: transform .2s, box-shadow .2s, opacity .2s;
+  margin-bottom: 24px;
+}
+.pfc-result-btn:hover:not(:disabled) { transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 28px rgba(46,58,89,.45); }
+.pfc-result-btn:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
+
+/* Zone résultat */
+.pfc-resultat { min-height: 72px; margin-bottom: 24px; }
+
+.pfc-result-row {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  font-size: 1rem; font-weight: 600; color: #444;
+  margin-bottom: 10px;
+}
+.pfc-player, .pfc-cpu { font-size: .95rem; }
+.pfc-player em, .pfc-cpu em { font-style: normal; color: #2E3A59; }
+.pfc-vs { font-size: .75rem; font-weight: 800; color: #aaa; letter-spacing: 1px; }
+
+.pfc-outcome {
+  font-size: 1.3rem; font-weight: 800;
+  padding: 10px 24px; border-radius: 14px; display: inline-block;
+  animation: pfc-outcome-pop .4s cubic-bezier(.175,.885,.32,1.275);
+}
+@keyframes pfc-outcome-pop { from{opacity:0;transform:scale(.5)} to{opacity:1;transform:scale(1)} }
+.pfc-outcome--win  { background: #d4edda; color: #155724; }
+.pfc-outcome--lose { background: #f8d7da; color: #721c24; }
+.pfc-outcome--draw { background: #fff3cd; color: #856404; }
+
+/* Score */
+.pfc-score {
+  display: flex; justify-content: center; gap: 14px;
+  flex-wrap: wrap; margin-bottom: 16px;
+}
+.pfc-score-item {
+  padding: 8px 20px; border-radius: 20px;
+  font-size: .95rem; font-weight: 700;
+}
+.pfc-win  { background: #d4edda; color: #155724; }
+.pfc-draw { background: #fff3cd; color: #856404; }
+.pfc-lost { background: #f8d7da; color: #721c24; }
+
+/* Bouton reset */
+.pfc-reset-btn {
+  background: none; border: 1.5px solid #ccc; color: #aaa;
+  padding: 7px 18px; border-radius: 20px; font-size: .82rem;
+  cursor: pointer; transition: border-color .2s, color .2s;
+}
+.pfc-reset-btn:hover { border-color: #d32f2f; color: #d32f2f; }
+
+/* Dark mode */
+body.dark-mode .pfc-title               { color: #ffd54f; }
+body.dark-mode .pfc-choice-btn          { background: #1e1e2e; border-color: #444; box-shadow: 0 3px 10px rgba(0,0,0,.3); }
+body.dark-mode .pfc-choice-btn span     { color: #bbb; }
+body.dark-mode .pfc-choice-btn:hover    { background: #252545; border-color: #ffd54f; box-shadow: 0 10px 28px rgba(0,0,0,.4); }
+body.dark-mode .pfc-chosen              { color: #ffd54f; }
+body.dark-mode .pfc-choice-badge        { background: #2a2a3a; color: #ffd54f; }
+body.dark-mode .pfc-result-btn          { background: linear-gradient(135deg,#ffd54f,#f9a825); color: #2E3A59; }
+body.dark-mode .pfc-player em,
+body.dark-mode .pfc-cpu em              { color: #ffd54f; }
+body.dark-mode .pfc-result-row          { color: #ccc; }
+body.dark-mode .pfc-outcome--win        { background: #1b4020; color: #a5d6a7; }
+body.dark-mode .pfc-outcome--lose       { background: #3e1a1e; color: #ef9a9a; }
+body.dark-mode .pfc-outcome--draw       { background: #3a3000; color: #ffd54f; }
+body.dark-mode .pfc-win                 { background: #1b4020; color: #a5d6a7; }
+body.dark-mode .pfc-draw                { background: #3a3000; color: #ffd54f; }
+body.dark-mode .pfc-lost                { background: #3e1a1e; color: #ef9a9a; }
+body.dark-mode .pfc-reset-btn           { border-color: #555; color: #666; }
+body.dark-mode .pfc-reset-btn:hover     { border-color: #ef9a9a; color: #ef9a9a; }
+
+@media (max-width: 400px) {
+  .pfc-choice-btn { padding: 14px 16px; min-width: 80px; font-size: 2rem; }
+  .pfc-result-btn { padding: 12px 28px; font-size: .95rem; }
+}

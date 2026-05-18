@@ -1,0 +1,163 @@
+/* ── Cochogratt' ── */
+.cochon-main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 36px 20px 64px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.cochon-header { text-align: center; margin-bottom: 32px; }
+
+.cochon-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.4rem;
+  color: #d81b60;
+  margin-bottom: 8px;
+}
+
+.cochon-subtitle { color: #666; font-size: 1rem; margin-bottom: 16px; }
+
+.cochon-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #f48fb1, #d81b60);
+  color: #fff;
+  padding: 9px 22px; border-radius: 24px;
+  font-size: 1rem; font-weight: 600;
+  box-shadow: 0 4px 14px rgba(216,27,96,.35);
+}
+
+/* Login prompt */
+.cochon-login-prompt {
+  text-align: center;
+  background: linear-gradient(135deg,#fce4ec,#f8bbd0);
+  border: 2px dashed #f06292; border-radius: 18px;
+  padding: 36px 24px; margin-bottom: 28px;
+}
+.cochon-lock { font-size: 3rem; margin-bottom: 12px; }
+.cochon-login-prompt h3 { color: #c2185b; font-size: 1.35rem; margin-bottom: 8px; }
+.cochon-login-prompt p  { color: #555; margin-bottom: 22px; }
+.cochon-login-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.cochon-btn {
+  padding: 11px 26px; border-radius: 10px; font-weight: 700;
+  text-decoration: none; font-size: .95rem;
+  transition: transform .2s, box-shadow .2s; display: inline-block;
+}
+.cochon-btn:hover { transform: translateY(-2px); }
+.cochon-btn-primary  { background: #d81b60; color: #fff; box-shadow: 0 4px 14px rgba(216,27,96,.35); }
+.cochon-btn-secondary { background: #fff; color: #d81b60; border: 2px solid #d81b60; }
+
+/* Game */
+.cochon-game { text-align: center; margin-bottom: 36px; }
+
+.cochon-ticket {
+  max-width: 380px; margin: 0 auto 24px;
+  background: #fff;
+  border: 2px solid #f48fb1;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(216,27,96,.2);
+}
+
+.cochon-ticket-top {
+  background: linear-gradient(135deg,#f48fb1,#d81b60);
+  padding: 14px;
+  text-align: center;
+}
+.cochon-ticket-label {
+  color: #fff; font-weight: 700; font-size: .88rem; letter-spacing: 2px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cochon-scratch-wrap {
+  position: relative;
+  width: 100%; height: 160px;
+  background: #fff8fb;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.cochon-reveal {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; font-weight: 700;
+  border-radius: 0;
+  z-index: 0;
+}
+.cochon-reveal--win  { color: #d81b60; background: linear-gradient(135deg,#fce4ec,#fff8fb); }
+.cochon-reveal--lose { color: #999;    background: #fafafa; }
+
+#scratchCanvas {
+  position: absolute; inset: 0; z-index: 2;
+  border-radius: 0; display: block;
+  width: 100%; height: 100%;
+  touch-action: none;
+}
+
+.cochon-hint {
+  position: absolute; bottom: 10px; left: 0; right: 0;
+  text-align: center; font-size: .82rem; color: rgba(216,27,96,.6);
+  z-index: 3; pointer-events: none;
+  transition: opacity .3s;
+  font-weight: 600; letter-spacing: .5px;
+}
+
+.cochon-ticket-bottom {
+  background: #fce4ec; color: #c2185b;
+  padding: 8px; text-align: center;
+  font-size: .78rem; font-weight: 600; letter-spacing: .5px;
+}
+
+/* Result */
+.cochon-result {
+  margin-top: 20px; border-radius: 18px;
+  padding: 20px 28px; font-weight: 600; font-size: 1.05rem;
+  text-align: center;
+  animation: cochonResultPop .5s cubic-bezier(.175,.885,.32,1.275);
+}
+@keyframes cochonResultPop { from{opacity:0;transform:scale(.7)} to{opacity:1;transform:scale(1)} }
+.cochon-result.win     { background: linear-gradient(135deg,#fce4ec,#f8bbd0); border: 2px solid #f06292; color: #880e4f; }
+.cochon-result.jackpot { background: linear-gradient(135deg,#ff80ab,#d81b60); border: 2px solid #d81b60; color: #fff; box-shadow: 0 8px 32px rgba(216,27,96,.5); }
+.cochon-result.lose    { background: #fafafa; border: 2px solid #e0e0e0; color: #888; }
+.cochon-result-emoji   { font-size: 2rem; display: block; margin-bottom: 6px; }
+
+/* Already played */
+.cochon-played-banner {
+  background: linear-gradient(135deg,#fce4ec,#fafafa);
+  border: 2px solid #f48fb1; border-radius: 18px;
+  padding: 28px; text-align: center; margin-bottom: 28px;
+}
+.cochon-played-icon { font-size: 3rem; margin-bottom: 10px; }
+.cochon-played-banner p { color: #444; margin: 5px 0; }
+.cochon-played-banner strong { color: #d81b60; }
+.cochon-next-time { font-size: .88rem !important; color: #888 !important; margin-top: 12px !important; }
+
+/* Legend */
+.cochon-legend { text-align: center; margin-top: 8px; }
+.cochon-legend h3 { font-size: 1.1rem; color: #c2185b; margin-bottom: 14px; }
+.cochon-legend-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.cochon-legend-item {
+  background: #fce4ec; border: 2px solid #f48fb1; border-radius: 10px;
+  padding: 8px 18px; font-size: .9rem; font-weight: 600; color: #880e4f;
+}
+.cochon-info { text-align: center; margin-top: 28px; color: #999; font-size: .88rem; }
+
+/* Dark mode */
+body.dark-mode .cochon-title              { color: #f48fb1; }
+body.dark-mode .cochon-subtitle           { color: #bbb; }
+body.dark-mode .cochon-login-prompt       { background: linear-gradient(135deg,#2d0f1a,#3d1525); border-color: #f06292; }
+body.dark-mode .cochon-login-prompt h3    { color: #f48fb1; }
+body.dark-mode .cochon-login-prompt p     { color: #ccc; }
+body.dark-mode .cochon-ticket             { background: #1e1e2e; border-color: #c2185b; box-shadow: 0 6px 24px rgba(216,27,96,.3); }
+body.dark-mode .cochon-scratch-wrap       { background: #2a1520; }
+body.dark-mode .cochon-reveal--win        { background: #2a1520; }
+body.dark-mode .cochon-reveal--lose       { background: #1e1e2e; }
+body.dark-mode .cochon-ticket-bottom      { background: #2d0f1a; color: #f48fb1; }
+body.dark-mode .cochon-played-banner      { background: linear-gradient(135deg,#2d0f1a,#1e1e1e); border-color: #c2185b; }
+body.dark-mode .cochon-played-banner p    { color: #ddd; }
+body.dark-mode .cochon-legend-item        { background: #2d0f1a; border-color: #c2185b; color: #f48fb1; }
+body.dark-mode .cochon-result.lose        { background: #2a2a2a; border-color: #444; color: #bbb; }
+
+@media (max-width: 480px) {
+  .cochon-title       { font-size: 1.9rem; }
+  .cochon-scratch-wrap { height: 130px; }
+}

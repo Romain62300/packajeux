@@ -345,6 +345,23 @@ body.dark-mode .btn-action:hover {
   background: #ffd54f;
   color: #121212;
 }
+body.dark-mode .btn-action.btn-new {
+  background: #c62828;
+  border-color: #c62828;
+  color: #fff;
+}
+body.dark-mode .btn-action.btn-new:hover {
+  background: #b71c1c;
+  border-color: #b71c1c;
+}
+
+body.dark-mode .victory-card {
+  background: #1e1e2e;
+  border: 1px solid #444;
+  box-shadow: 0 12px 40px rgba(0,0,0,.7);
+}
+body.dark-mode .victory-card h2 { color: #ffd54f; }
+body.dark-mode .victory-card p  { color: #bbb; }
 
 /* RESPONSIVE */
 @media (max-width: 700px) {

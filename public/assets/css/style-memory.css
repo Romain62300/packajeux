@@ -89,19 +89,30 @@
   margin-right: auto;
 }
 
-body.dark-mode .memory-card.flipped {
-  background-color: #2a2a2a;
-  border-color: #ec4899;
-}
+/* ── Dark mode ── */
+body.dark-mode .memory-stats          { color: #ccc; }
+body.dark-mode .memory-stats strong   { color: #ffd54f; }
 
-body.dark-mode .memory-card.matched {
-  background-color: #1e4620;
-  border-color: #4caf50;
+body.dark-mode .memory-card {
+  background-color: #2d2d4a;
+  border: 2px solid #3d3d60;
+  box-shadow: 0 4px 8px rgba(0,0,0,.4);
 }
+body.dark-mode .memory-card:hover:not(.flipped):not(.matched) {
+  background-color: #3a3a60;
+  border-color: #7c7cca;
+}
+body.dark-mode .memory-card::before   { color: #ffd54f; }
+
+body.dark-mode .memory-card.flipped   { background-color: #1e1e2e; border-color: #ec4899; }
+body.dark-mode .memory-card.matched   { background-color: #1e4620; border-color: #4caf50; }
+
+body.dark-mode .memory-controls .btn  { background: #2d2d4a; color: #ffd54f; border-color: #ffd54f; }
 
 body.dark-mode .memory-win {
   background-color: #1e4620;
   color: #c3e6cb;
+  border: 1px solid #4caf50;
 }
 
 @media (max-width: 600px) {

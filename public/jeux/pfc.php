@@ -1,25 +1,33 @@
-<?php include('../../includes/header.php'); ?>
+<?php include_once('../../includes/header.php'); ?>
 
-<main class="container">
-  <h2>Pierre Feuille Ciseau</h2>
-  <p style="text-align:right"><a href="pfc.php">🔁 Rejouer</a></p>
+<main class="pfc-main">
+  <h2 class="pfc-title">✊🖐✌️ Pierre Feuille Ciseau</h2>
 
-  <div style="text-align: center; margin: 20px auto;">
-    <div id="choix-user" style="margin-bottom: 10px; font-weight: bold;"></div>
+  <div class="pfc-game">
 
-    <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
-      <button onclick="res('Pierre')" class="btn btn-choix">✊ Pierre</button>
-      <button onclick="res('Feuille')" class="btn btn-choix">📄 Feuille</button>
-      <button onclick="res('Ciseau')" class="btn btn-choix">✂️ Ciseau</button>
+    <div class="pfc-choices">
+      <button onclick="res('Pierre')"  class="pfc-choice-btn" aria-label="Pierre">✊<span>Pierre</span></button>
+      <button onclick="res('Feuille')" class="pfc-choice-btn" aria-label="Feuille">📄<span>Feuille</span></button>
+      <button onclick="res('Ciseau')"  class="pfc-choice-btn" aria-label="Ciseau">✂️<span>Ciseau</span></button>
     </div>
 
-    <button onclick="testing()" class="btn btn-resultat">🎯 Résultat</button>
-  </div>
+    <div id="choix-user" class="pfc-chosen"></div>
 
-  <div id="resultat" style="text-align:center; font-size: 18px; margin-top: 20px;"></div>
-  <div id="score" style="text-align:center; font-weight:bold; margin-top: 10px;">Gagné: 0 fois. Perdu: 0 fois.</div>
+    <button id="resultBtn" onclick="testing()" class="pfc-result-btn" disabled>
+      🎯 Résultat
+    </button>
+
+    <div id="resultat" class="pfc-resultat"></div>
+
+    <div id="score" class="pfc-score"></div>
+
+    <button id="resetScoreBtn" class="pfc-reset-btn" title="Remettre le score à zéro">
+      🔄 Réinitialiser le score
+    </button>
+
+  </div>
 </main>
 
-<script src="../assets/js/pfc.js"></script>
+<script src="<?= $BASE_URL ?>/assets/js/pfc.js"></script>
 
-<?php include('../../includes/footer.php'); ?>
+<?php include_once('../../includes/footer.php'); ?>
