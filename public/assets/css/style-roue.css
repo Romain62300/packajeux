@@ -1,0 +1,356 @@
+/* ======================================================
+   ROUE DE LA FORTUNE — Packajeux
+====================================================== */
+
+.roue-main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 36px 20px 64px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ── Header ── */
+.roue-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.roue-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.6rem;
+  color: #2E3A59;
+  margin-bottom: 8px;
+}
+
+.roue-subtitle {
+  color: #666;
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+}
+
+.roue-jetons-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd54f, #ffb300);
+  color: #5d3a00;
+  padding: 9px 22px;
+  border-radius: 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(255, 179, 0, 0.35);
+}
+
+/* ── Login prompt ── */
+.roue-login-prompt {
+  text-align: center;
+  background: linear-gradient(135deg, #f3f4f8, #e8ecf5);
+  border: 2px dashed #2E3A59;
+  border-radius: 18px;
+  padding: 36px 24px;
+  margin-bottom: 28px;
+}
+
+.roue-lock-icon {
+  font-size: 3.2rem;
+  margin-bottom: 12px;
+}
+
+.roue-login-prompt h3 {
+  color: #2E3A59;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.roue-login-prompt p {
+  color: #666;
+  margin-bottom: 22px;
+}
+
+.roue-login-btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.roue-btn {
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+}
+
+.roue-btn:hover {
+  transform: translateY(-2px);
+}
+
+.roue-btn-primary {
+  background: #2E3A59;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(46, 58, 89, 0.3);
+}
+
+.roue-btn-secondary {
+  background: #fff;
+  color: #2E3A59;
+  border: 2px solid #2E3A59;
+}
+
+/* ── Game layout ── */
+.wheel-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.wheel-game--locked {
+  opacity: 0.45;
+  pointer-events: none;
+  filter: grayscale(0.5);
+}
+
+/* ── Wheel ── */
+.wheel-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Pointer triangle (fixed above wheel) */
+.wheel-pointer {
+  position: relative;
+  z-index: 10;
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 38px solid #d63031;
+  margin-bottom: -2px;
+  filter: drop-shadow(0 4px 10px rgba(214, 48, 49, 0.65));
+  animation: pointerGlow 2s ease-in-out infinite;
+}
+
+@keyframes pointerGlow {
+  0%, 100% { filter: drop-shadow(0 4px 10px rgba(214, 48, 49, 0.55)); }
+  50%       { filter: drop-shadow(0 4px 20px rgba(214, 48, 49, 0.95)); }
+}
+
+#wheelCanvas {
+  display: block;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 6px #fff,
+    0 0 0 10px #ffd54f,
+    0 16px 48px rgba(0, 0, 0, 0.22);
+  cursor: default;
+  /* Responsive: CSS scales the canvas visually, internal resolution stays 400×400 */
+  width: min(400px, calc(100vw - 56px));
+  height: min(400px, calc(100vw - 56px));
+}
+
+/* ── Controls ── */
+.wheel-controls {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.roue-spin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 18px 48px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(238, 90, 36, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.4px;
+}
+
+.roue-spin-btn:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 32px rgba(238, 90, 36, 0.55);
+}
+
+.roue-spin-btn:active:not(:disabled) {
+  transform: translateY(1px) scale(0.98);
+}
+
+.roue-spin-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #aaa;
+  box-shadow: none;
+}
+
+.spin-btn-icon {
+  font-size: 1.5rem;
+  animation: rotateSpin 3s linear infinite;
+  display: inline-block;
+}
+
+.roue-spin-btn:disabled .spin-btn-icon {
+  animation: none;
+}
+
+@keyframes rotateSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Already played banner ── */
+.roue-played-banner {
+  background: linear-gradient(135deg, #fafafa, #f0f0f0);
+  border: 2px solid #ddd;
+  border-radius: 18px;
+  padding: 24px 28px;
+  text-align: center;
+}
+
+.played-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.roue-played-banner p {
+  color: #444;
+  font-size: 1.05rem;
+  margin: 5px 0;
+}
+
+.roue-played-banner strong {
+  color: #2E3A59;
+}
+
+.roue-next-time {
+  font-size: 0.9rem !important;
+  color: #888 !important;
+  margin-top: 12px !important;
+}
+
+/* ── Result panel ── */
+.result-panel {
+  margin-top: 20px;
+  border-radius: 18px;
+  padding: 22px 28px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  animation: resultAppear 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes resultAppear {
+  from { opacity: 0; transform: scale(0.7) translateY(14px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.result-panel.win {
+  background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+  border: 2px solid #f9ca24;
+  color: #5d3a00;
+  box-shadow: 0 6px 22px rgba(249, 202, 36, 0.35);
+}
+
+.result-panel.jackpot {
+  background: linear-gradient(135deg, #fd79a8, #d63031);
+  border: 2px solid #d63031;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(214, 48, 49, 0.5);
+  animation: jackpotBurst 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes jackpotBurst {
+  0%   { opacity: 0; transform: scale(0.4); }
+  65%  { transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.result-panel.lose {
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  color: #777;
+}
+
+.result-emoji {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ── Legend ── */
+.roue-legend {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.roue-legend h3 {
+  font-size: 1.15rem;
+  color: #2E3A59;
+  margin-bottom: 16px;
+}
+
+.legend-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.legend-item {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.legend-item:hover {
+  border-color: #ffd54f;
+  transform: translateY(-2px);
+}
+
+.roue-info-text {
+  text-align: center;
+  margin-top: 28px;
+  color: #999;
+  font-size: 0.88rem;
+}
+
+/* ── Dark mode ── */
+body.dark-mode .roue-title                  { color: #ffd54f; }
+body.dark-mode .roue-subtitle               { color: #bbb; }
+body.dark-mode .roue-login-prompt           { background: linear-gradient(135deg, #1e1e2e, #252540); border-color: #555; }
+body.dark-mode .roue-login-prompt h3        { color: #ffd54f; }
+body.dark-mode .roue-login-prompt p         { color: #ccc; }
+body.dark-mode .roue-btn-primary            { background: #ffd54f; color: #2E3A59; }
+body.dark-mode .roue-btn-secondary          { background: #1e1e2e; color: #ffd54f; border-color: #ffd54f; }
+body.dark-mode .roue-played-banner          { background: linear-gradient(135deg, #1e1e1e, #2a2a2a); border-color: #444; }
+body.dark-mode .roue-played-banner p        { color: #ddd; }
+body.dark-mode .roue-played-banner strong   { color: #ffd54f; }
+body.dark-mode .legend-item                 { background: #2a2a2a; border-color: #444; color: #eee; }
+body.dark-mode .legend-item:hover           { border-color: #ffd54f; }
+body.dark-mode .result-panel.lose           { background: #2a2a2a; border-color: #444; color: #bbb; }
+body.dark-mode #wheelCanvas                 { box-shadow: 0 0 0 6px #1e1e1e, 0 0 0 10px #ffd54f, 0 16px 48px rgba(0,0,0,0.5); }
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+  .roue-title          { font-size: 2rem; }
+  .roue-spin-btn       { padding: 16px 36px; font-size: 1.05rem; }
+  .result-panel        { font-size: 1rem; padding: 16px 18px; }
+  .roue-played-banner  { padding: 18px 16px; }
+}
